@@ -1,14 +1,15 @@
 import express from "express"
-import { verifyToken } from "../middleware/auth"
-import { createDriver, getDrivers, updateDriver } from "../controllers/driver"
+import { verifyToken } from "../middleware/auth.js"
+import { createDriver, getDrivers, updateDriver, deleteDriver } from "../controllers/driver.js"
 
 
 const router = express.Router()
 
 
-router.post("/", verifyToken, createDriver)
-router.get("/", verifyToken, getDrivers)
-router.patch("/", verifyToken,updateDriver)
+router.post("/",createDriver)
+router.get("/",getDrivers)
+router.patch("/:id",updateDriver)
+router.delete("/:id",deleteDriver)
 
 
 export default router

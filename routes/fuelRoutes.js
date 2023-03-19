@@ -1,6 +1,6 @@
 import express from "express"
-import { verifyToken } from "../middleware/auth"
-import { createFuel, getFuel, updateFuel } from "../controllers/fuel"
+import { verifyToken } from "../middleware/auth.js"
+import { createFuel, getFuel, updateFuel, deleteFuel} from "../controllers/fuel.js"
 
 
 const router = express.Router()
@@ -8,9 +8,10 @@ const router = express.Router()
 
 
 
-router.post("/", verifyToken, createFuel)
-router.get("/", verifyToken, getFuel)
-router.patch("/", verifyToken,updateFuel)
+router.post("/", createFuel)
+router.get("/", getFuel)
+router.patch("/:id", updateFuel)
+router.delete("/:id", deleteFuel)
 
 
 

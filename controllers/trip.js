@@ -1,4 +1,4 @@
-import Trip from  "../models/Trip.js"
+import Trip from "../models/Trip.js"
 
 export const createTrip = async (req, res) =>{
     try{
@@ -7,11 +7,7 @@ export const createTrip = async (req, res) =>{
             driver,
             startTime, 
             endTime, 
-            startLocation, 
-            endLocation, 
-            purpose, 
-            distanceTravelled, 
-            fuelUsed
+            route
         }  = req.body 
        
         const newTrip = new Trip({ 
@@ -19,11 +15,7 @@ export const createTrip = async (req, res) =>{
             driver,
             startTime, 
             endTime, 
-            startLocation, 
-            endLocation, 
-            purpose, 
-            distanceTravelled, 
-            fuelUsed
+            route
         })
 
         await newTrip.save()
@@ -58,11 +50,7 @@ export const updateTrip = async (req, res) =>{
             driver,
             startTime, 
             endTime, 
-            startLocation, 
-            endLocation, 
-            purpose, 
-            distanceTravelled, 
-            fuelUsed
+            route
         } = req.body 
 
         const trip = await Trip.findById(id)
@@ -73,11 +61,7 @@ export const updateTrip = async (req, res) =>{
                 driver,
                 startTime, 
                 endTime, 
-                startLocation, 
-                endLocation, 
-                purpose, 
-                distanceTravelled, 
-                fuelUsed
+                route
             }
         )
 
@@ -87,5 +71,22 @@ export const updateTrip = async (req, res) =>{
     }
 }
 
+
+/* delete */ 
+export const deleteTrip = async (req, res)=> {
+    try{
+        const {id } = req.params
+        Trip.findOneAndDelete({ _id: id }, function (err, result) {
+            if (err){
+                res.status(200).json("Vehicle does not exist")
+            }
+            else{
+                res.status(200).json(result)
+            }
+        });
+    }catch (err){
+        res.status(404).json( {message: err.message })
+    }
+}
 
 

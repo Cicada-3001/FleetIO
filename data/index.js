@@ -11,7 +11,6 @@ const vehicleIds = [
   new mongoose.Types.ObjectId(),
 ];
 
-
 const driverIds = [
     new mongoose.Types.ObjectId(),
     new mongoose.Types.ObjectId(),
@@ -22,8 +21,6 @@ const driverIds = [
     new mongoose.Types.ObjectId(),
     new mongoose.Types.ObjectId(),
 ];
-
-
 
 export const vehicles = [
   {
@@ -65,7 +62,6 @@ export const maintenances = [
       date: "dummy date", 
       cost: 113000,
       description: "dummy description", 
-
     },
   ];
 
@@ -96,4 +92,16 @@ export const fuels = [
       gallons: 600
     },
 ];
+
+
+export const users = [ 
+    { 
+      fullname: "Pablo Picasso", 
+      phone: "0740226539", 
+      email: "cicada3319@gmail.com", 
+      password:"test", 
+      created: new Date(),
+      lastLogin:" ", 
+    }
+]
 

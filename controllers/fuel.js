@@ -1,4 +1,4 @@
-import Fuel from  "../models/Fuel.js"
+import Fuel from "../models/Fuel.js"
 
 export const createFuel = async (req, res) =>{
     try{
@@ -68,4 +68,16 @@ export const updateFuel = async (req, res) =>{
 }
 
 
+/* delete */ 
+export const deleteFuel = async (req, res)=> {
+    try{
+        const {id } = req.params
+        const  fuel = Fuel.find({ _id: id} )
+        Fuel.deleteOne( { _id: id } )
+        
+        res.status(200).json(fuel)
+    }catch (err){
+        res.status(404).json( {message: err.message })
+    }
 
+}
