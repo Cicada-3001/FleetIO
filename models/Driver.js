@@ -1,16 +1,16 @@
 import mongoose  from "mongoose"
 
 const DriverSchema = new mongoose.Schema({
-    userId: { type: String},
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     firstName: { type: String, required: true}, 
     lastName: { type: String, required: true}, 
     licenseNumber: { type: String, required: true }, 
+    licenseExpiry: { type: String, required: true },
     dateOfBirth: { type: String, required: true }, 
     phoneNumber: { type: String, required: true},
     email: { type:String, required: true}, 
-    vehicle: {type:Object}, 
-    imageUrl: { type: String }
-
+    imageUrl: { type: String },
+    vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 })
 
 const Driver = mongoose.model('Driver', DriverSchema)

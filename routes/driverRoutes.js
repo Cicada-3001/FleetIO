@@ -1,6 +1,6 @@
 import express from "express"
 import { verifyToken } from "../middleware/auth.js"
-import { createDriver, getDrivers, updateDriver, deleteDriver } from "../controllers/driver.js"
+import { createDriver, getDrivers, updateDriver, deleteDriver, assignVehicle } from "../controllers/driver.js"
 
 
 const router = express.Router()
@@ -9,6 +9,7 @@ const router = express.Router()
 router.post("/",createDriver)
 router.get("/",getDrivers)
 router.patch("/:id",updateDriver)
+router.patch("/assignvehicle/:id", assignVehicle)
 router.delete("/:id",deleteDriver)
 
 

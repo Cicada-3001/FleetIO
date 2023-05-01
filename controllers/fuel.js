@@ -3,6 +3,7 @@ import Fuel from "../models/Fuel.js"
 export const createFuel = async (req, res) =>{
     try{
         const {
+            userId,
             vehicle,
             fuelType,
             location, 
@@ -11,6 +12,7 @@ export const createFuel = async (req, res) =>{
         }  = req.body 
        
         const newFuel = new Fuel({ 
+            userId,
             vehicle,
             fuelType,
             location, 

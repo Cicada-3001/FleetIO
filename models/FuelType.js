@@ -1,8 +1,9 @@
 import mongoose  from "mongoose"
 
 const FuelTypeSchema = new mongoose.Schema({
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
     name: { type:String,  required: true}, 
-    cost: { type:Number, required: true}, 
+    price: { type:Number, required: true}, 
 })
 
 

@@ -3,6 +3,7 @@ import Vehicle from "../models/Vehicles.js"
 export const createVehicle = async (req, res) =>{
     try{
         const {
+            userId,
             vehicleType,
             plateNumber,
             make, 
@@ -15,12 +16,15 @@ export const createVehicle = async (req, res) =>{
             availability,
             driver, 
             route, 
-            fuelConsumptionRate
+            fuelConsumptionRate, 
+            imageUrl, 
+            seatCapacity
         }  = req.body 
 
         console.log(req.body)
 
         const newVehicle = new Vehicle({ 
+            userId,
             vehicleType, 
             plateNumber, 
             make, 
@@ -33,10 +37,18 @@ export const createVehicle = async (req, res) =>{
             availability, 
             driver, 
             route, 
-            fuelConsumptionRate
+            fuelConsumptionRate,
+            imageUrl, 
+            seatCapacity
         })
         await newVehicle.save()
-        const vehicle = await Vehicle.find()
+        const vehicle = await Vehicle.find().populate(
+            [ 
+            'driver',   
+            'route',
+            'fuelType'
+            ]
+            );
         res.status(201).json(vehicle)
     }catch(err){
         res.status(409).json({ message: err.message })
@@ -47,7 +59,13 @@ export const createVehicle = async (req, res) =>{
 /* read */ 
 export const getVehicles = async (req, res)=>{
     try{
-        const vehicles = await Vehicle.find();
+        const vehicles = await Vehicle.find().populate(
+            [ 
+            'driver',   
+            'route',
+            'fuelType'
+            ]
+            );
         res.status(200).json(vehicles);
     }catch (err){
         res.status(404).json({ message: err.message})
@@ -72,10 +90,12 @@ export const updateVehicle = async (req, res) =>{
             availability,
             driver, 
             route, 
-            fuelConsumptionRate
+            fuelConsumptionRate,
+            imageUrl, 
+            seatCapacity
         }  = req.body 
 
-        const updatedVehicle= await Vehicle.findByIdAndUpdate(
+        const updatedVehicle= Vehicle.findByIdAndUpdate(
             id, 
             {
                 vehicleType,
@@ -90,16 +110,70 @@ export const updateVehicle = async (req, res) =>{
                 availability,
                 driver, 
                 route, 
-                fuelConsumptionRate
-             
-            }  
-        )
-
-        res.status(200).json(updatedVehicle)
+                fuelConsumptionRate, 
+                imageUrl, 
+                seatCapacity
+            } , 
+            function (err, result){
+                if (err){
+                    console.log(err)
+                }
+                else{
+                    res.status(200).json(result)
+                }
+            });
     }catch (err){
         res.status(404).json({ message: err.message})
     }
 }
+
+
+
+
+
+
+/* mark geofence */
+export const markGeofence = async (req, res) =>{ 
+    try{
+        const { id }  = req.params
+        const {
+            operationArea, 
+            geofenceRadius
+        }  = req.body 
+
+        const updatedVehicle= Vehicle.findByIdAndUpdate(
+            id, 
+            {
+                operationArea, 
+                geofenceRadius
+            } , 
+            function (err, result){
+                if (err){
+                    console.log(err)
+                }
+                else{
+                    res.status(200).json(result)
+                }
+            });
+    }catch (err){
+        res.status(404).json({ message: err.message})
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -140,6 +214,47 @@ export const assignRoute = async (req, res)=> {
         res.status(404).json( {message: err.message })
     }
 }
+
+
+
+/* mark availability */ 
+export const markAvailability = async (req, res)=> {
+    try{
+        const { id } = req.params
+        const { availability } = req.body
+        Vehicle.findByIdAndUpdate(id, { availability: availability },
+        function (err, result) {
+        if (err)
+            res.status(200).json("Cannot update availability, an error occured")
+        else
+        res.status(200).json(result)
+    });
+    }catch (err){
+        res.status(404).json( {message: err.message })
+    }
+}
+
+
+
+/* mark availability */ 
+export const markMaintenance = async (req, res)=> {
+    try{
+        const { id } = req.params
+        const { maintained } = req.body
+        Vehicle.findByIdAndUpdate(id, { maintained: maintained },
+        function (err, result) {
+        if (err)
+            res.status(200).json("Cannot assign route, an error occured")
+        else
+        res.status(200).json(result)
+    });
+    }catch (err){
+        res.status(404).json( {message: err.message })
+    }
+}
+
+
+
 
 
 
@@ -203,9 +318,6 @@ export const  alertGeofenceError = async (req, res)=> {
         res.status(404).json( {message: err.message })
     }
 }
-
-
-
 
 
 

@@ -5,18 +5,22 @@ import Route from "../models/Route.js"
 export const createRoute = async (req, res) =>{
     try{
         const {
+            userId,
             startPoint,
             endPoint,
             estimateDistance, 
-            estimateTime,  
+            estimateTime,
+            estimateFareAmt
+
         }  = req.body 
        
         const newRoute = new Route({ 
+            userId,
             startPoint,
             endPoint,
             estimateDistance, 
             estimateTime, 
-        
+            estimateFareAmt
         })
         await newRoute.save()
         const  fuel = await Route.find()
@@ -44,23 +48,33 @@ export const updateRoute = async (req, res) =>{
     try{
         const { id }  = req.params
         const {
+            userId,
             startPoint,
             endPoint,
-            estimatedDistance, 
-            estimatedTime,  
+            estimateDistance, 
+            estimateTime, 
+            estimateFareAmt 
         }  = req.body 
         
-        const updatedRoute= await Post.findByIdAndUpdate(
+        const updatedRoute=  Route.findByIdAndUpdate(
             id, 
             {
+                userId,
                 startPoint,
                 endPoint,
-                estimatedDistance, 
-                estimatedTime, 
-            }    
-        )
-
-        res.status(200).json(updatedRoute)
+                estimateDistance, 
+                estimateTime, 
+                estimateFareAmt
+            } ,
+            
+            function (err, result){
+                if (err){
+                    console.log(err)
+                }
+                else{
+                    res.status(200).json(result)
+                }
+            });
     }catch (err){
         res.status(404).json({ message: err.message})
     }

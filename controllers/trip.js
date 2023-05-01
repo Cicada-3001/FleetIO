@@ -3,19 +3,17 @@ import Trip from "../models/Trip.js"
 export const createTrip = async (req, res) =>{
     try{
         const {
+            userId,
             vehicle,
-            driver,
             startTime, 
             endTime, 
-            route
         }  = req.body 
        
         const newTrip = new Trip({ 
+            userId,
             vehicle,
-            driver,
             startTime, 
             endTime, 
-            route
         })
 
         await newTrip.save()
@@ -27,12 +25,36 @@ export const createTrip = async (req, res) =>{
 }
 
 
-
-
 /* read */ 
 export const getTrips = async (req, res)=>{
     try{
-        const trips = await Trip.find();
+        const trips = await Trip.find().populate({
+            path: 'vehicle',
+            populate: 
+             [ 
+             'fuelType',
+             'route',
+             'driver'
+             ]
+          });
+        res.status(200).json(trips);
+    }catch (err){
+        res.status(404).json({ message: err.message})
+    }
+}
+
+
+export const getThisMonthsTrips = async (req, res)=>{
+    try{
+        const trips = await Trip.find().populate({
+            path: 'vehicle',
+            populate: 
+             [ 
+             'fuelType',
+             'route',
+             'driver'
+             ]
+          });
         res.status(200).json(trips);
     }catch (err){
         res.status(404).json({ message: err.message})
@@ -41,31 +63,108 @@ export const getTrips = async (req, res)=>{
 
 
 
+
+
+export const getLastMonthsTrips = async (req, res)=>{
+    try{
+        const trips = await Trip.find().populate({
+            path: 'vehicle',
+            populate: 
+             [ 
+             'fuelType',
+             'route',
+             'driver'
+             ]
+          });
+        res.status(200).json(trips);
+    }catch (err){
+        res.status(404).json({ message: err.message})
+    }
+}
+
+
+
+
+
+
+
+export const getYesterdayTrips = async (req, res)=>{
+    try{
+        const trips = await Trip.find().populate({
+            path: 'vehicle',
+            populate: 
+             [ 
+             'fuelType',
+             'route',
+             'driver'
+             ]
+          });
+        res.status(200).json(trips);
+    }catch (err){
+        res.status(404).json({ message: err.message})
+    }
+}
+
+
+
+
+export const getTodayTrips = async (req, res)=>{
+    try{
+        const trips = await Trip.find().populate({
+            path: 'vehicle',
+            populate: 
+             [ 
+             'fuelType',
+             'route',
+             'driver'
+             ]
+          });
+        res.status(200).json(trips);
+    }catch (err){
+        res.status(404).json({ message: err.message})
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* update */
 export const updateTrip = async (req, res) =>{ 
     try{
         const { id }  = req.params
         const {
-            vehicle,
-            driver,
+            userId,
+            vehicle, 
             startTime, 
-            endTime, 
-            route
+            endTime
         } = req.body 
 
-        const trip = await Trip.findById(id)
-        const updatedTrip= await Post.findByIdAndUpdate(
+    
+        const updatedTrip= await Trip.findByIdAndUpdate(
             id, 
             {
+                userId,
                 vehicle,
-                driver,
                 startTime, 
                 endTime, 
-                route
-            }
-        )
-
-        res.status(200).json(updatedTrip)
+            
+            }, 
+            (err, result) => {
+                if (err){
+                    console.log(err)
+                }
+                else{
+                    res.status(200).json(result)
+                }
+            });
     }catch (err){
         res.status(404).json({ message: err.message})
     }
@@ -76,9 +175,9 @@ export const updateTrip = async (req, res) =>{
 export const deleteTrip = async (req, res)=> {
     try{
         const {id } = req.params
-        Trip.findOneAndDelete({ _id: id }, function (err, result) {
+        Trip.findOneAndDelete({ _id: id },  (err, result)=> {
             if (err){
-                res.status(200).json("Vehicle does not exist")
+                res.status(200).json("Trip does not exist")
             }
             else{
                 res.status(200).json(result)

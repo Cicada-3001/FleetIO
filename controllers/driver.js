@@ -1,26 +1,30 @@
 import Driver from "../models/Driver.js"
-
+import Vehicle from "../models/Vehicles.js"
 
 export const createDriver = async (req, res) =>{
     try{
         const {
+            userId,
             firstName,
             lastName,
             licenseNumber, 
             dateOfBirth, 
             phoneNumber, 
             email, 
+            imageUrl,
             vehicle
         }  = req.body
        
 
         const newDriver = new Driver({ 
+            userId,
             firstName, 
             lastName, 
             licenseNumber, 
             dateOfBirth, 
             phoneNumber, 
             email, 
+            imageUrl,
             vehicle
         })
         await newDriver.save()
@@ -34,7 +38,7 @@ export const createDriver = async (req, res) =>{
 /* read */ 
 export const getDrivers = async (req, res)=>{
     try{
-        const drivers = await Driver.find();
+        const drivers = await Driver.find().populate('vehicle')
         res.status(200).json(drivers);
     }catch (err){
         res.status(404).json({ message: err.message})
@@ -49,26 +53,36 @@ export const updateDriver = async (req, res) =>{
             firstName,
             lastName,
             licenseNumber, 
+            licenseExpiry,
             dateOfBirth, 
             phoneNumber, 
             email, 
-            vehicle
+            vehicle,
+            imageUrl
         }  = req.body 
-        const driver = await Driver.findById(id)
-        const updatedDriver= await Post.findByIdAndUpdate(
+      
+        const updatedDriver=  Driver.findByIdAndUpdate(
             id, 
             {
                 firstName, 
                 lastName, 
                 licenseNumber, 
+                licenseExpiry,
                 dateOfBirth, 
                 phoneNumber, 
                 email, 
-                vehicle 
-            }  
-        )
-
-        res.status(200).json(updatedDriver)
+                vehicle,
+                imageUrl 
+            },
+            function (err, result) {
+                if (err){
+                    console.log(err)
+                }
+                else{
+                    res.status(200).json(result)
+                }
+            }); 
+    
     }catch (err){
         res.status(404).json({ message: err.message})
     }
@@ -95,15 +109,32 @@ export const deleteDriver = async (req, res)=> {
 
 
 
-
 /* assign vehicle to a driver */ 
 export const assignVehicle = async (req, res)=> {
     try{
-        const {id } = req.params
-        const  driver = Driver.find({ _id: id} )
-        Driver.deleteOne( { _id: id } )
-        res.status(200).json(driver)
-        
+        const { id } = req.params
+        const { vehicle } = req.body
+
+        updatedVehicle= await Vehicle.findByIdAndUpdate(
+            vehicle, 
+            {
+                driver: id
+            },
+          )
+
+        const updatedDriver= await Driver.findByIdAndUpdate(
+            id, 
+            {
+                vehicle
+            },
+            (err, result) => {
+                if (err){
+                    console.log(err)
+                }
+                else{
+                    res.status(200).json(result)
+                }
+            });             
     }catch (err){
         res.status(404).json( {message: err.message })
     }

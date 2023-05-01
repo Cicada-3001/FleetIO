@@ -1,8 +1,8 @@
 import mongoose  from "mongoose"
 
 const MaintenanceSchema = new mongoose.Schema({
-    userId: { type: String },
-    vehicle: { type: Object}, 
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle'}, 
     maintenanceType: { type: String, required: true}, 
     date: { type: String, required: true }, 
     cost: { type: Number, required: true},
@@ -13,3 +13,11 @@ const MaintenanceSchema = new mongoose.Schema({
 const Maintenance = mongoose.model('Maintenance', MaintenanceSchema)
 
 export default Maintenance
+
+
+/* 
+    preventive maintenance
+    predictive maintenance 
+    corrective maintenance
+
+    */

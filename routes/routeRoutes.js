@@ -7,8 +7,8 @@ const router = express.Router()
 
 router.post("/", createRoute)
 router.get("/", getRoute)
-router.patch("/", updateRoute)
-router.delete("/", deleteRoute)
+router.patch("/:id", updateRoute)
+router.delete("/:id", deleteRoute)
 
 
 export default router
