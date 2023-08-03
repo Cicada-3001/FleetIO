@@ -8,6 +8,7 @@ export const createDriver = async (req, res) =>{
             firstName,
             lastName,
             licenseNumber, 
+            licenseExpiry,
             dateOfBirth, 
             phoneNumber, 
             email, 
@@ -21,6 +22,7 @@ export const createDriver = async (req, res) =>{
             firstName, 
             lastName, 
             licenseNumber, 
+            licenseExpiry,
             dateOfBirth, 
             phoneNumber, 
             email, 
@@ -113,9 +115,9 @@ export const deleteDriver = async (req, res)=> {
 export const assignVehicle = async (req, res)=> {
     try{
         const { id } = req.params
-        const { vehicle } = req.body
+        const { vehicle } = req.params
 
-        updatedVehicle= await Vehicle.findByIdAndUpdate(
+        const updatedVehicle= await Vehicle.findByIdAndUpdate(
             vehicle, 
             {
                 driver: id
@@ -126,15 +128,11 @@ export const assignVehicle = async (req, res)=> {
             id, 
             {
                 vehicle
-            },
-            (err, result) => {
-                if (err){
-                    console.log(err)
-                }
-                else{
-                    res.status(200).json(result)
-                }
-            });             
+            }
+           );  
+        
+        res.status(200).json(updatedDriver)
+
     }catch (err){
         res.status(404).json( {message: err.message })
     }

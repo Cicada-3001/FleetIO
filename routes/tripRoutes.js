@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 router.post("/", createTrip)
-router.get("/", getTrips)
+router.get("/:startDate/:endDate", getTrips)
 router.patch("/:id", updateTrip)
 router.delete("/:id",deleteTrip)
 

@@ -25,10 +25,15 @@ export const createTrip = async (req, res) =>{
 }
 
 
+
+
 /* read */ 
 export const getTrips = async (req, res)=>{
     try{
-        const trips = await Trip.find().populate({
+        const { startDate }= req.params
+        const { endDate }  = req.params
+
+        const trips = await Trip.find({startTime:{$gte:startDate},$lte:endDate}).populate({
             path: 'vehicle',
             populate: 
              [ 
@@ -36,101 +41,15 @@ export const getTrips = async (req, res)=>{
              'route',
              'driver'
              ]
-          });
+          }).sort({"endTime": "desc"});
+
+
+
         res.status(200).json(trips);
     }catch (err){
         res.status(404).json({ message: err.message})
     }
 }
-
-
-export const getThisMonthsTrips = async (req, res)=>{
-    try{
-        const trips = await Trip.find().populate({
-            path: 'vehicle',
-            populate: 
-             [ 
-             'fuelType',
-             'route',
-             'driver'
-             ]
-          });
-        res.status(200).json(trips);
-    }catch (err){
-        res.status(404).json({ message: err.message})
-    }
-}
-
-
-
-
-
-export const getLastMonthsTrips = async (req, res)=>{
-    try{
-        const trips = await Trip.find().populate({
-            path: 'vehicle',
-            populate: 
-             [ 
-             'fuelType',
-             'route',
-             'driver'
-             ]
-          });
-        res.status(200).json(trips);
-    }catch (err){
-        res.status(404).json({ message: err.message})
-    }
-}
-
-
-
-
-
-
-
-export const getYesterdayTrips = async (req, res)=>{
-    try{
-        const trips = await Trip.find().populate({
-            path: 'vehicle',
-            populate: 
-             [ 
-             'fuelType',
-             'route',
-             'driver'
-             ]
-          });
-        res.status(200).json(trips);
-    }catch (err){
-        res.status(404).json({ message: err.message})
-    }
-}
-
-
-
-
-export const getTodayTrips = async (req, res)=>{
-    try{
-        const trips = await Trip.find().populate({
-            path: 'vehicle',
-            populate: 
-             [ 
-             'fuelType',
-             'route',
-             'driver'
-             ]
-          });
-        res.status(200).json(trips);
-    }catch (err){
-        res.status(404).json({ message: err.message})
-    }
-}
-
-
-
-
-
-
-
 
 
 
@@ -146,8 +65,6 @@ export const updateTrip = async (req, res) =>{
             startTime, 
             endTime
         } = req.body 
-
-    
         const updatedTrip= await Trip.findByIdAndUpdate(
             id, 
             {
@@ -169,6 +86,11 @@ export const updateTrip = async (req, res) =>{
         res.status(404).json({ message: err.message})
     }
 }
+
+
+
+
+
 
 
 /* delete */ 

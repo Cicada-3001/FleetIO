@@ -5,7 +5,6 @@ const OtherExpenseSchema = new mongoose.Schema({
     description: { type:  String, required: true}, 
     amount: { type: Number, required: true}, 
     created: { type: String, required: true }, 
-   
 })
 
 const OtherExpense = mongoose.model('OtherExpense', OtherExpenseSchema)

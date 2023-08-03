@@ -9,7 +9,7 @@ const router = express.Router()
 router.post("/",createDriver)
 router.get("/",getDrivers)
 router.patch("/:id",updateDriver)
-router.patch("/assignvehicle/:id", assignVehicle)
+router.patch("/assignvehicle/:id/:vehicle", assignVehicle)
 router.delete("/:id",deleteDriver)
 
 

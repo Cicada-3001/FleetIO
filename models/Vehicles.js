@@ -18,6 +18,7 @@ const VehicleSchema = new mongoose.Schema({
     imageUrl: { type: String }, 
     seatCapacity: { type: Number, required: true},
     operationArea:  { type: String },
+    areaCoordinate: { type: String },
     geofenceRadius: { type: Number }
 })
 

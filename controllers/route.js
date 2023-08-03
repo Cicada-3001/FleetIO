@@ -8,6 +8,8 @@ export const createRoute = async (req, res) =>{
             userId,
             startPoint,
             endPoint,
+            startingCoordinate,
+            endingCoordinate,
             estimateDistance, 
             estimateTime,
             estimateFareAmt
@@ -18,6 +20,8 @@ export const createRoute = async (req, res) =>{
             userId,
             startPoint,
             endPoint,
+            startingCoordinate, 
+            endingCoordinate,
             estimateDistance, 
             estimateTime, 
             estimateFareAmt

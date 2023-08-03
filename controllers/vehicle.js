@@ -1,4 +1,5 @@
 import Vehicle from "../models/Vehicles.js"
+import Driver from "../models/Driver.js"
 
 export const createVehicle = async (req, res) =>{
     try{
@@ -20,6 +21,8 @@ export const createVehicle = async (req, res) =>{
             imageUrl, 
             seatCapacity
         }  = req.body 
+
+     
 
         console.log(req.body)
 
@@ -71,6 +74,26 @@ export const getVehicles = async (req, res)=>{
         res.status(404).json({ message: err.message})
     }
 }
+
+
+
+/* get vehicle by vin */ 
+export const getVehicleByVin = async (req, res)=>{
+    const { vin }  = req.params
+    try{
+        const vehicle = await Vehicle.find({ vin: vin}).populate(
+            [ 
+            'driver',   
+            'route',
+            'fuelType'
+            ]
+            );
+        res.status(200).json(vehicle);
+    }catch (err){
+        res.status(404).json({ message: err.message})
+    }
+}
+
 
 
 /* update */
@@ -128,24 +151,18 @@ export const updateVehicle = async (req, res) =>{
 }
 
 
-
-
-
-
 /* mark geofence */
 export const markGeofence = async (req, res) =>{ 
     try{
-        const { id }  = req.params
-        const {
-            operationArea, 
-            geofenceRadius
-        }  = req.body 
+        const {id }  = req.params
+        const  area  = req.query.area
+        const radius   = req.query.radius
 
         const updatedVehicle= Vehicle.findByIdAndUpdate(
             id, 
             {
-                operationArea, 
-                geofenceRadius
+                operationArea: area, 
+                geofenceRadius: radius
             } , 
             function (err, result){
                 if (err){
@@ -159,21 +176,6 @@ export const markGeofence = async (req, res) =>{
         res.status(404).json({ message: err.message})
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -195,6 +197,9 @@ export const deleteVehicle = async (req, res)=> {
         res.status(404).json( {message: err.message })
     }
 }
+
+
+
 
 
 
@@ -255,14 +260,11 @@ export const markMaintenance = async (req, res)=> {
 
 
 
-
-
-
 /* assign Driver */ 
 export const assignDriver = async (req, res)=> {
     try{
         const {id } = req.params
-        const { driver } = req.body
+        const { driver } = req.params
         Vehicle.findByIdAndUpdate(id, { driver: driver },
         function (err, result) {
         if (err)
@@ -287,9 +289,6 @@ export const updateCurrentLocation = async (req, res)=> {
         res.status(404).json( {message: err.message })
     }
 }
-
-
-
 
 
 /* mark the gefenced area */ 

@@ -10,7 +10,7 @@ const DriverSchema = new mongoose.Schema({
     phoneNumber: { type: String, required: true},
     email: { type:String, required: true}, 
     imageUrl: { type: String },
-    vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle'}
 })
 
 const Driver = mongoose.model('Driver', DriverSchema)
