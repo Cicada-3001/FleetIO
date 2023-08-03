@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VehicleInfoActivity"
+   >
+
+    <ImageView
+        android:id="@+id/back_button_img"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:layout_below="@+id/back_button_img"
+        >
+        <TextView
+            android:id="@+id/availabilityTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On Route"
+            android:textColor="@color/quill_green"
+            />
+
+        <TextView
+            android:id="@+id/driverTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver :"
+            android:textColor="@color/black"
+            android:layout_below="@+id/availabilityTv"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:id="@+id/driverValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pablo Picasso"
+            android:textColor="@color/black"
+            android:layout_below="@+id/availabilityTv"
+            android:layout_toRightOf="@+id/availabilityTv"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:id="@+id/routeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Route"
+            android:textColor="@color/black"
+            android:layout_below="@+id/driverTv"
+            android:layout_marginTop="20dp"
+            />
+
+        <ImageView
+            android:id="@+id/startPointImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/routeTv"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_location_on_24"
+            />
+
+        <TextView
+            android:id="@+id/startPointTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/routeTv"
+            android:layout_marginTop="10dp"
+            android:text="Nairobi"
+            android:textStyle="bold"
+            android:textColor="@color/quill_blue"
+            android:layout_toRightOf="@+id/startPointImg"
+            android:src="@drawable/ic_baseline_location_on_24"
+            />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="35dp"
+            android:background="@color/black"
+            android:layout_below="@+id/routeTv"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="11dp"
+            />
+
+        <ImageView
+            android:id="@+id/endPointImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/startPointImg"
+            android:src="@drawable/ic_baseline_location_on_24"
+            android:layout_marginTop="28dp"
+            />
+
+        <TextView
+            android:id="@+id/endPointTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/startPointImg"
+            android:layout_marginTop="28dp"
+            android:text="Nairobi"
+            android:textStyle="bold"
+            android:textColor="@color/quill_blue"
+            android:layout_toRightOf="@+id/endPointImg"
+            android:src="@drawable/ic_baseline_location_on_24"
+            />
+
+
+
+
+        <TextView
+            android:id="@+id/fuelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fuel Efficiency"
+            android:textColor="@color/black"
+            android:layout_below="@+id/endPointImg"
+            android:layout_marginTop="20dp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/fuelValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12500"
+            android:textColor="@color/quill_blue"
+            android:textStyle="bold"
+            android:layout_below="@+id/endPointImg"
+            android:layout_marginTop="37dp"
+            android:layout_toRightOf="@+id/fuelTv"
+            />
+
+
+        <TextView
+            android:id="@+id/maintenanceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maintenance Cost"
+            android:textColor="@color/black"
+            android:layout_below="@+id/fuelTv"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:id="@+id/maintenanceValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12500"
+            android:textColor="@color/quill_blue"
+            android:textStyle="bold"
+            android:layout_below="@+id/maintenanceTv"
+            android:layout_toRightOf="@+id/fuelTv"
+            />
+
+        <TextView
+            android:id="@+id/insuranceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insurance Cost"
+            android:textColor="@color/black"
+            android:layout_below="@+id/maintenanceTv"
+            android:layout_marginTop="30dp"
+            />
+
+        <TextView
+            android:id="@+id/insuranceValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12500"
+            android:textColor="@color/quill_blue"
+            android:textStyle="bold"
+            android:layout_below="@+id/insuranceTv"
+            android:layout_toRightOf="@+id/fuelTv"
+            />
+
+        <TextView
+            android:id="@+id/editTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit details"
+            android:textColor="@color/quill_blue"
+            android:layout_below="@+id/fuelCostTv"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            />
+
+        <TextView
+            android:id="@+id/editImg"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/insuranceTv"
+            android:layout_marginTop="20dp"
+            android:layout_toStartOf="@+id/editTv"
+            android:src="@drawable/ic_baseline_edit_24"
+            />
+
+        <TextView
+            android:id="@+id/geofenceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mark Geofence"
+            android:textColor="@color/quill_blue"
+            android:layout_below="@+id/editTv"
+            android:layout_marginTop="20dp"
+            android:layout_centerInParent="true"
+            />
+
+
+        <TextView
+            android:id="@+id/fuelCostTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fuel Cost"
+            android:textColor="@color/black"
+            android:layout_below="@+id/insuranceTv"
+            android:layout_marginTop="30dp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/fuelCostValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12500"
+            android:textColor="@color/quill_blue"
+            android:textStyle="bold"
+            android:layout_below="@+id/fuelCostTv"
+            android:layout_toRightOf="@+id/fuelTv"
+            />
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFF5F5"
+        android:layout_alignParentBottom="true"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/needMainTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Need Maintenance"
+            android:textColor="@color/black"
+            android:layout_below="@+id/maintenanceTv"
+            android:layout_marginTop="20dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/needMainProgress"
+            android:indeterminate="true"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:indeterminateOnly="true"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:indeterminateTint="@color/quill_blue"
+            android:layout_marginVertical="10dp"
+            />
+
+        <TextView
+            android:id="@+id/needInsuranceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insurance Cost"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/needInsuranceProgress"
+            android:indeterminate="true"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:indeterminateOnly="true"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:indeterminateTint="@color/figma_red"
+            android:layout_marginVertical="10dp"
+            />
+    </LinearLayout>
+</RelativeLayout>

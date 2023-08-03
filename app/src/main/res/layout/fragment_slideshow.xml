@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.slideshow.SlideshowFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+     >
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:indeterminate="true"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:indeterminateOnly="true"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:visibility="gone"
+        android:indeterminateTint="@color/quill_blue"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart= "16dp"
+        android:paddingEnd = "16dp"
+        android:layout_marginTop="18dp"
+        android:paddingBottom ="16dp">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            app:cardBackgroundColor="@color/lightgray"
+            app:cardCornerRadius="5dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                >
+                <ImageView
+                    android:id="@+id/peopleIv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_people_24"
+                    android:layout_marginEnd="15dp"
+                    />
+                <TextView
+                    android:id="@+id/shareTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Share reports with multiple members"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/peopleIv"
+                    />
+
+                <TextView
+                    android:id="@+id/knowMoreTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="Tap here to know more"
+                    android:layout_toRightOf="@+id/peopleIv"
+                    android:layout_below="@+id/shareTv"
+                    android:layout_marginTop="5dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/cancelIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_people_24"
+                    android:layout_centerVertical="true"
+
+                    />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report will be generated for"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Duration"
+                    android:textSize="11sp"
+                    />
+                <TextView
+                    android:id="@+id/dateFilterTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="All Time"
+                    android:textStyle="bold"
+                    android:textColor="@color/quill_blue"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_height="40dp"
+                android:layout_width="2dp"
+                android:background="@color/lightgray"
+                android:layout_marginStart="15dp"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="15dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Search Term"
+                    android:textSize="11sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="None"
+                    android:textStyle="bold"
+                    android:textColor="@color/quill_blue"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Report Type"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            />
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:isScrollContainer="true"
+                android:layout_marginTop="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:scrollbars="none"
+                >
+
+
+                <RadioGroup
+                    android:id="@+id/reportTypeRG"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginVertical="10dp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="5dp">
+
+                            <RadioButton
+                                android:id="@+id/choiceRb"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/default_user" />
+
+                            <TextView
+                                android:id="@+id/entriesTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/choiceRb"
+                                android:text="All Entries Report"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/entriesDescTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/entriesTv"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/choiceRb"
+                                android:text="List of all entries and details"
+                                android:textSize="13sp" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginVertical="10dp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="5dp">
+
+                            <RadioButton
+                                android:id="@+id/routeWiseRb"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/default_user" />
+
+                            <TextView
+                                android:id="@+id/routeWiseTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/routeWiseRb"
+                                android:text="Route Wise Summary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/routeWiseDescTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/routeWiseTv"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/routeWiseRb"
+                                android:text="List of all entries and details"
+                                android:textSize="13sp" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginVertical="10dp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="5dp">
+
+                            <RadioButton
+                                android:id="@+id/vehicleWiseRb"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/default_user" />
+
+                            <TextView
+                                android:id="@+id/vehicleWiseTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/vehicleWiseRb"
+                                android:text="Vehicle Wise Summary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/vehicleWiseDescTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/vehicleWiseTv"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/vehicleWiseRb"
+                                android:text="List of all entries and details"
+                                android:textSize="13sp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginVertical="10dp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="5dp">
+
+                            <RadioButton
+                                android:id="@+id/driverWiseRb"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/default_user" />
+
+                            <TextView
+                                android:id="@+id/driverWiseTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/driverWiseRb"
+                                android:text="Driver Wise Summary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/driverWiseDescTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/driverWiseTv"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/driverWiseRb"
+                                android:text="List of all entries and details"
+                                android:textSize="13sp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginVertical="10dp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="5dp">
+
+                            <RadioButton
+                                android:id="@+id/revenueRb"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="15dp"
+                            />
+
+                            <TextView
+                                android:id="@+id/revenueTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/revenueRb"
+                                android:text="Revenue Wise Summary"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/revenueDescTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/revenueTv"
+                                android:layout_marginTop="5dp"
+                                android:layout_toRightOf="@+id/revenueRb"
+                                android:text="List of all entries and details"
+                                android:textSize="13sp" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </RadioGroup>
+
+
+                <Button
+                    android:id="@+id/genExcelBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="132dp"
+                    android:text="Generate Excel"
+                    android:ems="10"
+                    android:textColor="@color/white"
+                    android:background="@color/quill_blue"
+                    app:backgroundTint="@null"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:icon="@drawable/ic_baseline_grid_on_24"
+                    app:iconTint="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/editTextDobOuter"
+                    android:layout_marginVertical="10dp"
+                    style="?attr/materialButtonOutlinedStyle"
+                    />
+
+                <Button
+                    android:id="@+id/genPdfBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="132dp"
+                    android:text="Generate Pdf"
+                    android:ems="10"
+                    android:textColor="@color/white"
+                    android:background="@color/quill_green"
+                    app:backgroundTint="@null"
+                    android:textAllCaps="false"
+                    app:icon="@drawable/ic_baseline_picture_as_pdf_24"
+                    app:iconTint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/editTextDobOuter"
+                    android:layout_marginVertical="10dp"
+                    style="?attr/materialButtonOutlinedStyle"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+
+
+
+

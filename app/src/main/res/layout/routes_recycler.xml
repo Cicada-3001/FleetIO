@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+
+    <ImageView
+        android:id="@+id/firstIconIv"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_baseline_location_on_24"
+    />
+
+    <TextView
+        android:id="@+id/startPointTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Point"
+        android:layout_marginStart="10dp"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:textAlignment="textStart"
+        android:layout_toRightOf="@+id/firstIconIv"
+        />
+
+
+    <View
+        android:id="@+id/lineSeparator"
+        android:layout_width="2dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_baseline_location_on_24"
+        android:background="@color/lightgrey"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="12dp"/>
+
+
+
+    <ImageView
+        android:id="@+id/secondIconIv"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/ic_baseline_location_on_24"
+        android:layout_below="@+id/firstIconIv"
+        />
+
+
+    <TextView
+        android:id="@+id/endPointTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Point"
+        android:layout_marginStart="10dp"
+        android:textAlignment="textStart"
+        android:textSize="11sp"
+        android:layout_toRightOf="@+id/secondIconIv"
+        android:layout_below="@+id/firstIconIv"
+        android:layout_marginTop="25dp"
+        />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_baseline_location_on_24"
+        android:background="@color/lightgray"
+        android:layout_below="@+id/endPointTv"
+        android:layout_marginTop="20dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textAlignment="textStart"
+        android:textSize="11sp"
+        android:text="Estimate Fare:"
+        android:layout_toLeftOf="@+id/fareAmtTv"
+        android:layout_below="@+id/firstIconIv"
+        android:layout_above="@+id/separator"
+        android:layout_marginTop="25dp"
+        />
+
+    <TextView
+        android:id="@+id/fareAmtTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:layout_marginStart="10dp"
+        android:textAlignment="textStart"
+        android:textSize="11sp"
+        android:textColor="@color/quill_green"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/separator"
+        android:layout_below="@+id/firstIconIv"
+        android:layout_marginTop="25dp"
+        />
+
+
+
+</RelativeLayout>

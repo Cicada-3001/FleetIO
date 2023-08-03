@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="800dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="20dp"
+    android:paddingHorizontal="10dp"
+    android:id="@+id/relativelayout">
+
+
+
+        <!--Recycler View widget-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activeRoutesRv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:scrollbars="horizontal"
+            android:layout_above="@+id/divide"
+            android:layout_marginBottom="10dp"/>
+
+
+    <View
+        android:id="@+id/divide"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/lightgray"
+        android:layout_centerVertical="true"
+         />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activeVehiclesRv"
+        android:scrollbars="none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/divide"/>-->
+
+
+</RelativeLayout>

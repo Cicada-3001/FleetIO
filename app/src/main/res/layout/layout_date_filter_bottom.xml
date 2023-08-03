@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date Filter"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:padding="15dp"
+        android:layout_marginTop="15dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/lightgray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                >
+                <RadioButton
+                    android:id="@+id/todayRb"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/default_user"
+                    android:layout_marginEnd="15dp"
+                    />
+                <TextView
+                    android:id="@+id/todayTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/todayRb"
+                    />
+                <CheckBox
+                    android:id="@+id/todayCheck"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/todayRb"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/todayTv"/>
+
+                <TextView
+                    android:id="@+id/todayDescTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="List of all entries and details"
+                    android:layout_toRightOf="@+id/todayCheck"
+                    android:layout_below="@+id/todayTv"
+                    android:layout_marginTop="15dp"
+                    />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                >
+                <RadioButton
+                    android:id="@+id/yesterdayRb"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/default_user"
+                    android:layout_marginEnd="15dp"
+                    />
+                <TextView
+                    android:id="@+id/yesterdayTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yesterday"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/yesterdayRb"
+                    />
+                <CheckBox
+                    android:id="@+id/yesterdayCheck"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/yesterdayRb"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/yesterdayTv"/>
+
+                <TextView
+                    android:id="@+id/yesterdayDescTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="List of all entries and details"
+                    android:layout_toRightOf="@+id/yesterdayCheck"
+                    android:layout_below="@+id/yesterdayTv"
+                    android:layout_marginTop="15dp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                >
+                <RadioButton
+                    android:id="@+id/thisMthRb"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/default_user"
+                    android:layout_marginEnd="15dp"
+                    />
+                <TextView
+                    android:id="@+id/thisMthTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="This Month"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/thisMthRb"
+                    />
+                <CheckBox
+                    android:id="@+id/thisMthCheck"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/thisMthRb"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/thisMthTv"/>
+
+                <TextView
+                    android:id="@+id/thisMthDescTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="List of all entries and details"
+                    android:layout_toRightOf="@+id/thisMthCheck"
+                    android:layout_below="@+id/thisMthTv"
+                    android:layout_marginTop="15dp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                >
+                <RadioButton
+                    android:id="@+id/lastMthRb"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/default_user"
+                    android:layout_marginEnd="15dp"
+                    />
+                <TextView
+                    android:id="@+id/lastMthTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Month"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/lastMthRb"
+                    />
+                <CheckBox
+                    android:id="@+id/lastMthCheck"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/lastMthRb"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/lastMthTv"/>
+
+                <TextView
+                    android:id="@+id/lastMthDescTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="List of all entries and details"
+                    android:layout_toRightOf="@+id/lastMthCheck"
+                    android:layout_below="@+id/lastMthTv"
+                    android:layout_marginTop="15dp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                >
+                <RadioButton
+                    android:id="@+id/singleDayRb"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/default_user"
+                    android:layout_marginEnd="15dp"
+                    />
+                <TextView
+                    android:id="@+id/singleDayTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Single Day"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/singleDayRb"
+                    />
+                <CheckBox
+                    android:id="@+id/singleDayCheck"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/singleDayRb"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/singleDayTv"/>
+
+                <TextView
+                    android:id="@+id/singleDayDescTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="List of all entries and details"
+                    android:layout_toRightOf="@+id/singleDayCheck"
+                    android:layout_below="@+id/singleDayTv"
+                    android:layout_marginTop="15dp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                >
+                <RadioButton
+                    android:id="@+id/choiceRb"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/default_user"
+                    android:layout_marginEnd="15dp"
+                    />
+                <TextView
+                    android:id="@+id/dateRangeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date Range"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/choiceRb"
+                    />
+                <CheckBox
+                    android:id="@+id/dateRangeCheck"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/choiceRb"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/dateRangeTv"/>
+
+                <TextView
+                    android:id="@+id/dateRangeDescTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="List of all entries and details"
+                    android:layout_toRightOf="@+id/dateRangeCheck"
+                    android:layout_below="@+id/dateRangeTv"
+                    android:layout_marginTop="15dp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/lightgray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/genExcelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:text="Clear All"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextDobOuter"
+            android:layout_marginVertical="10dp"
+            style="?attr/materialButtonOutlinedStyle"
+            />
+
+        <Button
+            android:id="@+id/genPdfBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:text="Apply"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextDobOuter"
+            android:layout_marginVertical="10dp"
+            style="?attr/materialButtonOutlinedStyle"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

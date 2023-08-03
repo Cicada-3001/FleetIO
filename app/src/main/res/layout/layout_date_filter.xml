@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    tools:context=".ui.slideshow.SlideshowFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:isScrollContainer="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="20dp"
+    android:scrollbars="none">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/quill_blue"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date Filter"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_marginVertical="15dp"
+            />
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:id="@+id/radioGrp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RadioButton android:id="@+id/alltimeRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All time"
+            />
+
+        <RadioButton android:id="@+id/todayRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today"
+            />
+
+        <RadioButton android:id="@+id/yesterdayRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yesterday"/>
+
+        <RadioButton android:id="@+id/thisMthRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This Month"/>
+
+
+        <RadioButton android:id="@+id/lastMthRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Month"/>
+
+
+        <RadioButton android:id="@+id/singleDayRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single Day"
+           />
+
+        <RadioButton android:id="@+id/dateRangeRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date Range"
+           />
+
+    </RadioGroup>
+</LinearLayout>

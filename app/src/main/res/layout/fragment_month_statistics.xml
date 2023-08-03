@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".statistics.MonthStatistics">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            android:isScrollContainer="true"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                >
+
+                <com.anychart.AnyChartView
+                    android:id="@+id/waterfallChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+            </RelativeLayout>
+
+            <!--   <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:paddingTop="20dp">
+                   <TextView
+                       android:id="@+id/leaderboardTv"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Leaderboard"
+                       android:textColor="@color/black"
+                       android:paddingStart="5dp"
+                       />
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/driversRv"
+                       android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"
+                       android:layout_below="@+id/leaderboardTv"/>
+               </RelativeLayout>
+
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="400dp"
+                   android:elevation="2dp"
+                   android:paddingTop="10dp"
+                   android:layout_marginTop="20dp"
+                   android:id="@+id/fuelRevenueRev"
+                   >
+                   <com.anychart.AnyChartView
+                       android:id="@+id/any_chart_view"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       />
+               </RelativeLayout>  -->
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+</FrameLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#F0F7F7" android:paddingStart="20dp" android:paddingTop="15dp" android:paddingBottom="15dp"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:id="@+id/vehNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/quill_green"
+            android:layout_marginBottom="4dp"
+            android:textSize="16dp"
+            android:text="Nissan NQR KBC 123C" />
+
+        <TextView
+            android:id="@+id/distanceLabelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vehNameTv"
+            android:text="Distance: " />
+
+        <TextView
+            android:id="@+id/distanceValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/vehNameTv"
+            android:layout_toEndOf="@+id/distanceLabelTv"
+            android:text="181km" />
+
+        <TextView
+            android:id="@+id/timeLabelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Trip time:"
+            android:layout_below="@+id/distanceLabelTv"
+            />
+
+        <TextView
+            android:id="@+id/timeValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginBottom="4dp"
+            android:layout_toEndOf="@+id/timeLabelTv"
+            android:textSize="15dp"
+            android:layout_marginStart="4dp"
+            android:layout_below="@+id/distanceLabelTv"
+            android:text="1 hour 29 min" />
+
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="100dp"
+            android:background="@color/lightgrey"
+
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="22dp"
+        >
+        <TextView
+            android:id="@+id/tripNoLabelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No of trips:" />
+
+
+        <TextView
+            android:id="@+id/tripNoValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tripNoLabelTv"
+            android:text="6"
+            android:textColor="@color/black"
+            android:layout_marginStart="4dp"
+            />
+
+        <TextView
+            android:id="@+id/fuelLabelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:textSize="15dp"
+            android:layout_below="@+id/tripNoLabelTv"
+            android:text="Fuel:" />
+
+        <TextView
+            android:id="@+id/fuelValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginBottom="4dp"
+            android:layout_below="@+id/tripNoLabelTv"
+            android:layout_toEndOf="@+id/fuelLabelTv"
+            android:textSize="15dp"
+            android:text="8 litres"
+            android:layout_marginStart="4dp"
+            />
+
+        <TextView
+            android:id="@+id/revenueLabelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Revenue:"
+            android:layout_below="@+id/fuelLabelTv"
+
+            />
+        <TextView
+            android:id="@+id/revenueValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3200 ksh"
+            android:layout_toEndOf="@+id/revenueLabelTv"
+            android:layout_below="@+id/fuelLabelTv"
+            android:textColor="@color/black"
+            android:layout_marginStart="4dp"
+            />
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="@color/lightgrey"
+            android:layout_marginTop="77dp"
+
+            />
+    </RelativeLayout>
+</TableRow>

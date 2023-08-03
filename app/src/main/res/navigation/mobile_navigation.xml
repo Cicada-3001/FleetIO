@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.test.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+
+    <fragment
+        android:id="@+id/nav_reports"
+        android:name="com.example.test.ui.slideshow.SlideshowFragment"
+        android:label="Reports"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_support"
+        android:name="com.example.test.ui.help.HelpFragment"
+        android:label="Help"
+        tools:layout="@layout/fragment_help" />
+
+    <fragment
+        android:id="@+id/nav_trips"
+        android:name="com.example.test.ui.trips.TripsFragment"
+        android:label="Trips"
+        tools:layout="@layout/fragment_trips" />
+
+
+    <fragment
+        android:id="@+id/nav_revenue"
+        android:name="com.example.test.ui.gallery.GalleryFragment"
+        android:label="Revenue"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_demand_prediction"
+        android:name="com.example.test.ui.demandPrediction.DemandPredictionFragment"
+        android:label="Demand Prediction"
+        tools:layout="@layout/fragment_demand_prediction" />
+
+
+
+</navigation>

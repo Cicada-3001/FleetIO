@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/test_blue"
+    tools:context=".ProfilesActivity">
+
+
+        <ImageView
+            android:id="@+id/back_button_img"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:id="@+id/addDriverTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:text="Add Driver"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/addDriverProfile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toBottomOf="@+id/addDriverTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/default_user"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/white"
+            />
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/addDriverCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:elevation="5dp"
+            app:layout_constraintStart_toStartOf="@+id/addDriverProfile"
+            app:layout_constraintBottom_toBottomOf="@+id/addDriverProfile"
+            android:layout_marginStart="60dp"
+            app:cardBackgroundColor="@color/quill_green"
+            app:cardCornerRadius="100dp"
+
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_baseline_camera_alt_24"
+                android:elevation="5dp"/>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@+id/addDriverProfile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/curved_frontleft"
+                android:isScrollContainer="true"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:scrollbars="none"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="60dp"
+                app:layout_constraintTop_toBottomOf="@+id/addDriverProfile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editTextFirstnameOuter"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="70dp"
+                    android:drawablePadding="5dp"
+                    android:ems="10"
+                    android:textColorHint="@color/hint_color"
+                    android:textColor="@color/black"
+                    android:inputType="text"
+                    android:paddingHorizontal="15dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:hint="Fullname">
+
+                    <!--this is the actual edit text which takes the input-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextFirstname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editTextPhoneOuter"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawablePadding="5dp"
+                    android:ems="10"
+                    android:textColorHint="@color/hint_color"
+                    android:textColor="@color/black"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:paddingHorizontal="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextFirstnameOuter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    >
+
+                    <!--this is the actual edit text which takes the input-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editTextEmailOuter"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawablePadding="5dp"
+                    android:ems="10"
+                    android:textColorHint="@color/hint_color"
+                    android:textColor="@color/black"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextPhoneOuter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    >
+
+                    <!--this is the actual edit text which takes the input-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editTextDobOuter"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/ic_baseline_person_24"
+                    android:drawablePadding="5dp"
+                    android:ems="10"
+                    android:textColorHint="@color/hint_color"
+                    android:textColor="@color/black"
+                    android:hint="Date of Birth"
+                    android:inputType="text"
+                    android:paddingHorizontal="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextVehicleOuter"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <!--this is the actual edit text which takes the input-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextDob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editTextVehicleOuter"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/ic_baseline_directions_car_24"
+                    android:drawablePadding="5dp"
+                    android:ems="10"
+                    android:textColorHint="@color/hint_color"
+                    android:textColor="@color/black"
+                    android:hint="Vehicle"
+                    android:inputType="text"
+                    android:paddingHorizontal="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextEmailOuter"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <!--this is the actual edit text which takes the input-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextVehicle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/addDriverBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="132dp"
+                    android:text="Add Driver"
+                    android:ems="10"
+                    android:layout_marginBottom="30dp"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@null"
+                    android:background="@color/quill_blue"
+                    android:textAllCaps="false"
+                    android:layout_marginHorizontal="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/editTextDobOuter"
+                    android:layout_marginVertical="10dp"
+                    style="?attr/materialButtonOutlinedStyle"
+                    />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

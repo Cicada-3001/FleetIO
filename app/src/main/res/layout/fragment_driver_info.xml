@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:paddingHorizontal="16dp"
+    tools:ignore="MissingClass"
+    >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:isScrollContainer="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingBottom="20dp"
+            >
+
+
+            <EditText
+                android:id="@+id/editFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:hint="Firstname"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/editLastname"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textSize="14sp"
+                android:textColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:hint="Lastname"
+                android:inputType="text"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editFirstName" />
+
+            <EditText
+                android:id="@+id/editPhone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_baseline_phone_24"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:textSize="14sp"
+                android:textColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:hint="Phone"
+                android:inputType="text"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editLastname" />
+
+            <EditText
+                android:id="@+id/editEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_baseline_email_24"
+                android:drawablePadding="5dp"
+                android:textColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:ems="10"
+                android:textSize="14sp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editPhone" />
+
+            <EditText
+                android:id="@+id/editLicense"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:textSize="14sp"
+                android:drawableLeft="@drawable/ic_baseline_driver_license_24"
+                android:drawablePadding="5dp"
+                android:textColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:ems="10"
+                android:hint="License No."
+                android:inputType="text"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editEmailAddress" />
+
+            <EditText
+                android:id="@+id/editLicenseExpiry"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:textSize="14sp"
+                android:drawableLeft="@drawable/ic_baseline_driver_license_24"
+                android:drawablePadding="5dp"
+                android:textColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:ems="10"
+                android:hint="License No."
+                android:inputType="text"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editLicense" />
+
+
+
+            <EditText
+                android:id="@+id/editVehicle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_baseline_directions_car_filled_24"
+                android:drawablePadding="5dp"
+                android:textColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:ems="10"
+                android:textSize="14sp"
+                android:hint="Vehicle"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editLicenseExpiry" />
+
+
+            <EditText
+                android:id="@+id/editDOB"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:drawableLeft="@drawable/ic_baseline_edit_calendar_24"
+                android:drawablePadding="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/hint_color"
+                android:textColorHint="@color/hint_color"
+                android:ems="10"
+                android:hint="Date of Birth"
+                android:inputType="date"
+                android:paddingHorizontal="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editVehicle" />
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:textAllCaps="false"
+            android:text="Update"
+            android:padding="5dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/editDOB"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp"
+            />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/driver_options_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_dashboard_24"
+            app:fabSize="normal"
+            app:backgroundTint="@color/white"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/assign_veh_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_directions_car_24"
+            app:fabSize="normal"
+            android:visibility="gone"
+            app:backgroundTint="@color/white"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/driver_options_fab"/>
+
+        <TextView
+            android:id="@+id/assign_veh_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Assign Vehicle"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/assign_veh_fab"
+            app:layout_constraintEnd_toStartOf="@+id/assign_veh_fab"
+            app:layout_constraintTop_toTopOf="@+id/assign_veh_fab" />
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/message_driver_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_message_24"
+            app:fabSize="normal"
+            app:backgroundTint="@color/white"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/assign_veh_fab" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/call_driver_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_call_24"
+            app:fabSize="normal"
+            android:visibility="gone"
+            app:backgroundTint="@color/white"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/message_driver_fab" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

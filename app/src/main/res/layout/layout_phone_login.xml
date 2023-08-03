@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <EditText
+        android:id="@+id/phoneNumberEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="phone"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color"
+        android:hint="Enter phone"
+        />
+
+    <Button
+        android:id="@+id/getOtpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumberEdt"
+        android:layout_marginTop="30dp"
+        android:text="Get OTP"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <EditText
+        android:id="@+id/otpEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/getOtpBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="number"
+        android:hint="Enter OTP"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color"
+        />
+
+
+    <Button
+        android:id="@+id/verifyOtpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        app:layout_constraintTop_toBottomOf="@id/otpEdt"
+        android:layout_marginTop="30dp"
+        android:text="Verify OTP"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

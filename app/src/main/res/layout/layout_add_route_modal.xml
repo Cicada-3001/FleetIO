@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/route_repIv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/route_rep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/routesSelectRv"
+        app:layout_constraintTop_toBottomOf="@+id/route_repIv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"/>
+
+
+    <TextView
+        android:id="@+id/distanceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/routesSelectRv"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/distanceValueTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="120 km"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:layout_gravity="left"
+        app:layout_constraintTop_toBottomOf="@+id/routesSelectRv"
+        />
+
+    <TextView
+        android:id="@+id/timeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estimated time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTv"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/timeValueTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12 min"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:layout_gravity="left"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTv"
+        />
+
+    <TextView
+        android:id="@+id/fareAmtTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estimated Fare Amount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeTv"
+        android:padding="8dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fareAmtEditOuter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12 min"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:layout_gravity="left"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/timeValueTv">
+
+        <!--this is the actual edit text which takes the input-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fareAmtEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/routesSelectRv"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/addRouteBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:text="Add Route"
+            android:ems="10"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_weight="1"
+            app:backgroundTint="@null"
+
+            android:background="@color/quill_green"
+            />
+
+        <Button
+            android:id="@+id/clearBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:text="Clear"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_weight="1"
+            android:layout_marginBottom="15dp"
+            app:backgroundTint="@null"
+            android:background="@color/quill_red"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:elevation="2dp"
+    android:backgroundTint="@color/white"
+    android:layout_marginBottom="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageRep"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/fuel"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/fuelDescTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Car hiring"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_toEndOf="@+id/imageRep"
+            android:layout_marginStart="15dp"
+            />
+
+        <TextView
+            android:id="@+id/fuelDateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Car hiring"
+            android:layout_toEndOf="@+id/imageRep"
+            android:layout_marginStart="14dp"
+            android:textColor="@color/lightgrey"
+            android:layout_below="@+id/fuelDescTv"
+            />
+
+        <TextView
+            android:id="@+id/fuelAmtTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Car hiring"
+
+            android:textColor="@color/darkblue"
+            android:textSize="13dp"
+            android:layout_marginStart="15dp"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

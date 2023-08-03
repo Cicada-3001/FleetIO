@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+     >
+        <LinearLayout
+            android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:background="@color/white">
+
+                <!--on below line we are creating
+                    a simple image view-->
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/driverImg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:padding="5dp"
+                    android:src="@drawable/profile" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    >
+
+                        <!--on below line we are creating
+                            a simple text view-->
+                        <TextView
+                            android:id="@+id/driverNameTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/black"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:id="@+id/driverVehTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="11sp"
+                            android:text="No vehicle assigned"
+                            android:textAlignment="textStart"
+                            tools:ignore="RtlCompat" />
+
+                </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightgray"
+            android:layout_margin="2dp"/>
+
+</LinearLayout>

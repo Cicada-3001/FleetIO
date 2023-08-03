@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/xpressIv"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:src="@drawable/xpress"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:id="@+id/reportTypeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/xpressIv"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="Fleet Summary Report"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/datedTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/xpressIv"
+            android:layout_gravity="start"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:text="Dated: "
+            android:textColor="@color/black"
+            android:textSize="11dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/reportDateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/xpressIv"
+            android:layout_gravity="start"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_toRightOf="@+id/datedTv"
+            android:text="10th of March 2020"
+            android:textColor="@color/lightgrey"
+            android:textSize="11dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/periodTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/datedTv"
+            android:layout_gravity="start"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Period: "
+            android:textColor="@color/black"
+            android:textSize="11dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/reportPeriodTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/datedTv"
+            android:layout_gravity="start"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="10th of March 2020"
+            android:layout_toRightOf="@+id/datedTv"
+            android:textColor="@color/lightgrey"
+            android:textSize="11dp"
+            android:textStyle="bold" />
+
+
+
+    </RelativeLayout>
+
+
+    <TableLayout
+        android:id="@+id/table"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+    </TableLayout>
+</LinearLayout>

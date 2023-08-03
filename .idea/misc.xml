@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/cerclebackgroundgreen.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/cerclebackgroundpink.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/cerclebackgroundpurple.xml" value="0.205" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/cerclebackgroundyello.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/cercleshape.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/ic_attach_file_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/ic_attach_money_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/ic_control_point_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/ic_lightbulb_outline_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable-v24/ic_wifi_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/background_blue.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/background_orange.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/curved_backleft.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/curved_backleft_2.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/curved_frontleft.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/eclipse_background.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1405" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_arrow_back_ios_new_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_dashboard_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_directions_car_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_directions_car_filled_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_edit_calendar_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_key_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_call_24.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_circle.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/lower_section.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/octagon_blue.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/octagon_red.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/orange_background.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/rounded_button.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/rounded_edt.xml" value="0.122" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/rounded_green.xml" value="0.1225" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/rounded_red.xml" value="0.1225" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/rounded_yellow.xml" value="0.1225" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/selector.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/active_routes_recycler.xml" value="0.13296280461735785" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/active_vehicle_bottom_sheet.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/active_vehicle_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_add_driver.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_assign_vehicle.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_assignments.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_dashboard2.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_driver_info.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_driver_stat.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_drivers.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_edit_vehicle.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_forgot_password2.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_fuels.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_fullscreen.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_maintance_info.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_maintenance.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_maintenance_info.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_maintenances.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_pdf_viewer.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_profiles.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_register2.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_revenue_expense_details.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_route_diversion.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_route_info.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_routes.xml" value="0.1483539974348012" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_start.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_statistics.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_statistics2.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_test.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_trip.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_trip_complete_notification.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_vehicle_geofence.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_vehicle_info.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_vehicle_info2.xml" value="0.17828131680205217" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_vehicle_stat.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_vehicle_tracking.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_vehicle_tracking2.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_vehicles.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_vehicles2.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/activity_view.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/app_bar_start.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/content_start.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/driver_recycler_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/driver_report_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/driver_select_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/driver_stat_recycler_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/drop_down_item.xml" value="0.1633176571184267" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fleet_report_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_active_vehicle_bottom_sheet_list_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_day_statistics.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_driver_info.xml" value="0.1010194624652456" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_driver_stats.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_driver_today.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_expense.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_help.xml" value="0.12030075187969924" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_item_list_dialog_list_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_maintenance_timer.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_month_statistics.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_revenue.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_trips.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fragment_week_statistics.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/fuel_recycler_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_add_driver.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_add_maintenance.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_add_roles.xml" value="0.1373526745240254" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_add_route.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_add_route_modal.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_add_trip.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_add_vehicle.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_cashInOut.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_cashinout.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_date_filter.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_date_filter_bottom.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_edit_vehicle.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_fare_card.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_fleet_summary.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_fuel_card.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_geofence_notification.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_help_team_messages.xml" value="0.12330009066183137" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_image_selector.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_maintenance_card.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_mark_geofence.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_otherExpense_card.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_other_expense_card.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_phone_login.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_revenue_card.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/layout_user_messages.xml" value="0.12330009066183137" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/maintenance_recycler_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/nav_header_start.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/performance_ranking_report.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/route_report_row.xml" value="0.17828131680205217" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/route_select_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/routes_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/select_driver_bottom_sheet.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/select_route_bottom_sheet.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/select_vehicle_bottom_sheet.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/selected_routes_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/setting_recycler.xml" value="0.10063463281958296" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/settings_activity.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/test.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/trip_recycler_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/vehicle_recycler_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/vehicle_select_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/layout/vehicle_stat_recycler_row.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Test2/app/src/main/res/menu/start.xml" value="0.1368106028217187" />
+        <entry key="..\:/Users/HP/AppData/Local/Android/Sdk/platforms/android-33/android.jar!/res/layout/splash_screen_view.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AppData/Local/Android/Sdk/platforms/android-33/data/res/layout/splash_screen_view.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1010194624652456" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

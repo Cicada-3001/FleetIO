@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.test">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Test"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="33">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="Out of Geofence" />
+
+
+        <activity
+            android:name=".RouteDiversionActivity"
+            android:exported="false"
+            android:parentActivityName=".StartActivity"/>
+        <activity
+            android:name=".VehicleTracking2"
+            android:exported="false" />
+        <activity
+            android:name=".EditVehicleActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".VehicleGeofenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RevenueExpenseDetails"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".PdfViewerActivity"
+            android:exported="false"
+            android:label="Reports Viewer"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".RouteInfoActivity"
+            android:exported="false" />
+
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".VehicleStatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DriverStatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfilesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TripCompleteNotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD8xreY5umVdGtSKhBp0AJY8Ez8VZMAmlI" />
+
+        <activity
+            android:name=".TestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StatisticsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VehicleInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MaintenanceInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MaintenanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VehicleTrackingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AssignVehicleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StartActivity"
+            android:exported="true"
+            android:label="@string/title_activity_start"
+            android:theme="@style/Theme.Test.NoActionBar" />
+
+
+
+        <activity
+            android:name=".AddTripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddRouteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddMaintenanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddVehicleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddDriverActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DriverInfoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".BottomNavigation"
+            android:exported="false" />
+        <activity
+            android:name=".RoutesActivity"
+            android:exported="false"
+            android:label="Routes"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".TripActivity"
+            android:exported="false"
+            android:label="Trips"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".FuelsActivity"
+            android:exported="false"
+            android:label="Fuel"
+            android:parentActivityName=".DashboardActivity" />
+        <activity
+            android:name=".MaintenancesActivity"
+            android:exported="false"
+            android:label="Maintenances"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".DriversActivity"
+            android:exported="false"
+            android:label="Drivers"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".VehiclesActivity"
+            android:exported="false"
+            android:label="Vehicles"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/Theme.AppCompat.Light.Fullscreen" />
+        <activity
+            android:name=".SplashscreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+       <!-- <service
+            android:name="com.example.test2.YourFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> -->
+
+        <receiver android:name=".GeoFenceBroadcastReceiver" />
+    </application>
+
+
+</manifest>

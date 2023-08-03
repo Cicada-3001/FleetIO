@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="black_overlay">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="smoke">#E1DFDF</color>
+    <color name="orange">#FFC107</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="quill_green">#499577</color>
+    <color name="quill_red">#EF414C</color>
+    <color name="quill_purple">#8051FF</color>
+    <color name="quill_blue">#0067C5</color>
+    <color name="quill_blue_200">#200067C5</color>
+    <color name="report_blue">#94B4D3</color>
+    <color name="test_blue">#720067C5</color>
+    <color name="hint_color">#9E9E9E</color>
+    <color name="gradient_start_color">#4c84ff</color>
+    <color name="gradient_end_color">#18a3fe</color>
+    <!-- colors for tab and screen text -->
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="intro_title_color">#000000</color>
+    <color name="intro_description_color">#656565</color>
+    <color name="backgroundcolor">#fcfcfc</color>
+    <color name="lightgray">#ededed</color>
+    <color name="lightgrey">#52707070</color>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yellow">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="darkblue">#23283a</color>
+    <color name="testcolorblue">#152b38</color>
+    <color name="pink">#fe104d</color>
+    <color name="lightorange">#fdf2df</color>
+    <color name="lightorangedark">#ebd6ab</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="white_smoke">#f2f2f2</color>
+    <color name="grey">#AAA2A2</color>
+    <color name="figma_red">#D25B5B</color>
+    <color name="figma_yellow">#F59421</color>
+    <color name="figma_green">#058018</color>
+    <color name="status_bar">#666699</color>
+
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/menu_home" />
+
+        <item
+            android:id="@+id/nav_trips"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Trips" />
+        <item
+            android:id="@+id/nav_revenue"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Revenue" />
+
+        <item
+            android:id="@+id/nav_reports"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Reports" />
+
+        <item
+            android:id="@+id/nav_demand_prediction"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Demand Prediction" />
+
+    </group>
+
+    <item android:title="Xpress">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_baseline_share_24"
+                android:title="Share" />
+
+            <item
+                android:id="@+id/nav_review"
+                android:icon="@drawable/ic_baseline_rate_review_24"
+                android:title="Review" />
+
+            <item
+                android:id="@+id/nav_support"
+                android:icon="@drawable/ic_baseline_help_24"
+                android:title="Help" />
+            <item
+                android:id="@+id/nav_privacy"
+                android:icon="@drawable/ic_baseline_privacy_tip_24"
+                android:title="Privacy" />
+
+
+        </menu>
+    </item>
+
+
+
+
+
+
+
+
+
+</menu>
