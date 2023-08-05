@@ -1,0 +1,4 @@
+package Model
+
+class Route {
+}

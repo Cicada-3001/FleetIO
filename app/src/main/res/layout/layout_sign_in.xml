@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/splash_screen"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="16dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/white">
+
+        <Button
+            android:id="@+id/btn_phone_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:icon="@drawable/ic_baseline_phone_24"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            app:iconTint="@color/fui_bgGitHub"
+            android:text="Sign In with phone"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btn_google_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:icon="@drawable/fui_ic_googleg_color_24dp"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            app:iconTint="@color/fui_bgGitHub"
+            android:text="Sign In with google"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            />
+
+    </LinearLayout>
+</RelativeLayout>
