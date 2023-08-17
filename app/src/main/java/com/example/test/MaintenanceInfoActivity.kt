@@ -71,7 +71,7 @@ class MaintenanceInfoActivity : AppCompatActivity(), View.OnClickListener, OnIte
         vehicle= intent?.getStringExtra("vehicleType").toString()
         maintenanceType = intent?.getStringExtra("maintenanceType").toString()
         date= intent?.getStringExtra("date").toString()
-        cost= intent?.getStringExtra("cost").toString()
+        cost= intent?.getDoubleExtra("cost",0.00).toString()
         description= intent?.getStringExtra("description").toString()
 
 

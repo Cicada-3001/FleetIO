@@ -1,6 +1,7 @@
 package com.example.test
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Color
 import android.location.Address
@@ -55,6 +56,7 @@ class RouteInfoActivity : AppCompatActivity(),View.OnClickListener, OnMapReadyCa
     private lateinit var estimateDistanceTv:EditText
     private lateinit var estimateTimeTv:EditText
     private lateinit var routesSelRv:RecyclerView
+    private lateinit var detailsTv:TextView
 
     lateinit var routeId: String
     lateinit var startPoint: String
@@ -76,6 +78,10 @@ class RouteInfoActivity : AppCompatActivity(),View.OnClickListener, OnMapReadyCa
         );
         getSupportActionBar()?.hide();
 
+
+        startingCoordinate = ""
+        endingCoordinate = ""
+
         // initializing our search view.
         searchViewStart = findViewById(R.id.searchViewStart)
         searchViewEnd = findViewById(R.id.searchViewEnd)
@@ -85,16 +91,23 @@ class RouteInfoActivity : AppCompatActivity(),View.OnClickListener, OnMapReadyCa
         estimateTimeTv= findViewById(R.id.timeValueTv)
         routesSelRv = findViewById(R.id.routesSelectRv)
         estimateFareAmtEdt = findViewById(R.id.fareAmtEdit)
+        detailsTv = findViewById(R.id.detailsTv)
+        detailsTv.setOnClickListener(this)
+
 
         startPoint = intent.getStringExtra("startPoint").toString()
         endPoint = intent.getStringExtra("endPoint").toString()
         estimateDistance = intent.getStringExtra("estimateDistance").toString()
+        estimateFareAmt = intent.getDoubleExtra("estimateFare", 0.0)
+        routeId = intent.getStringExtra("routeId").toString()
+
+
+        Log.d("RouteId", routeId)
         estimateTime =  intent.getStringExtra("estimateTime").toString()
 
         estimateDistanceTv.setText(estimateDistance)
         estimateTimeTv.setText(estimateTime)
         estimateFareAmtEdt.setText(estimateFareAmt.toString())
-
 
 
         val repository = Repository()
@@ -241,6 +254,10 @@ class RouteInfoActivity : AppCompatActivity(),View.OnClickListener, OnMapReadyCa
         if(estimateFareAmt < 1)
             Toast.makeText(this,"Fare amount is required", Toast.LENGTH_SHORT).show()
         else {
+            estimateFareAmt = estimateFareAmtEdt.text.toString().toDouble()
+            estimateDistance = estimateDistanceTv.text.toString()
+            estimateTime = estimateTimeTv.text.toString()
+
             val newRoute = Route(
                 Constants.userId!!,
                 startPoint,
@@ -381,8 +398,11 @@ class RouteInfoActivity : AppCompatActivity(),View.OnClickListener, OnMapReadyCa
       /*  routesSelRecyclerAdapter = RoutesSelRecyclerAdapter(locationsList,this)
         routesSelRv?.adapter =routesSelRecyclerAdapter
         routesSelRv?.layoutManager= LinearLayoutManager(this)*/
+    }
 
 
+    fun animate(){
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
 
@@ -392,6 +412,17 @@ class RouteInfoActivity : AppCompatActivity(),View.OnClickListener, OnMapReadyCa
                 R.id.clearSearchIv -> {
                     searchViewStart.clearFocus()
                     searchViewEnd.clearFocus()
+                }
+                R.id.detailsTv -> {
+                    var intent = Intent(this@RouteInfoActivity, AboutRouteActivity::class.java)
+                    intent.putExtra("routeId", routeId)
+                    intent.putExtra("startPoint", startPoint)
+                    intent.putExtra("endPoint", endPoint)
+                    intent.putExtra("estimateFare", estimateFareAmt)
+                    intent.putExtra("estimateDistance", estimateDistance)
+                    intent.putExtra("estimateTime", estimateTime)
+                    startActivity(intent)
+                    animate()
                 }
                 else -> {
                     print("Error")

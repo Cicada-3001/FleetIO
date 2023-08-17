@@ -96,13 +96,10 @@ class TripActivity : AppCompatActivity(), View.OnClickListener{
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 // this method is called when we swipe our item to right direction.
                 // on below line we are getting the item at a particular position.
-                val deletedTrip: Trip =
-                    tripsList.get(viewHolder.adapterPosition)
-                // below line is to get the position
-                // of the item at that position.
                 val position = viewHolder.adapterPosition
-                showAlertDialog(tripsList[position])
-
+                val deletedTrip: Trip =
+                    tripsList.get(position)
+                showAlertDialog(deletedTrip)
                 tripRecyclerAdapter.notifyDataSetChanged()
             }
         }).attachToRecyclerView(tripRv)
@@ -111,8 +108,6 @@ class TripActivity : AppCompatActivity(), View.OnClickListener{
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun showDateFilter() {
-        Toast.makeText(this@TripActivity, "Show bottom sheet", Toast.LENGTH_SHORT).show()
-        // on below line we are creating a new bottom sheet dialog.
         val view = layoutInflater.inflate(R.layout.layout_date_filter, null)
         val radioGroup = view.findViewById<RadioGroup>(R.id.radioGrp)
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -191,14 +186,11 @@ class TripActivity : AppCompatActivity(), View.OnClickListener{
             })
 
             // on below line we are setting adapter to our recycler view.
-
+            progressBar.visibility = View.GONE
         }, 3000)
-        progressBar.visibility = View.GONE
+
         tripRecyclerAdapter.notifyDataSetChanged()
     }
-
-
-
 
 
 
@@ -268,19 +260,19 @@ class TripActivity : AppCompatActivity(), View.OnClickListener{
             R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog_Background
         )
             .setTitle("Confirm Delete")
-            .setMessage("Delete "+trip.startTime+ " to  "+trip.endTime)
+            .setMessage("Delete trip"+trip.vehicle.route?.startPoint+" to "+trip.vehicle.route?.endPoint+"\n Happened between"+ trip.startTime+ " and "+trip.endTime)
             .setPositiveButton("Yes") { _, _ ->
                 viewModel.deleteTrip(trip._id!!)
                 try {
                     viewModel.tripResponse.observe(this, Observer {
                         if (it.isSuccessful) {
-
-                            val deleteVehicle= it.body() as TripAdd
+                            val deleteTrip= it.body() as TripAdd
                             Toast.makeText(
                                 this,
-                                "Vehicle  deleted successfully",
+                                "Trip  deleted successfully",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            tripRecyclerAdapter.notifyDataSetChanged()
                         } else {
                             Toast.makeText(
                                 this,
@@ -292,6 +284,7 @@ class TripActivity : AppCompatActivity(), View.OnClickListener{
                     })
                 } catch (e: Exception) {
                     print(e.toString())
+                    Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
             .setNegativeButton("No") { dialog, _ ->

@@ -11,19 +11,9 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/white">
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:id="@+id/progress_circular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:indeterminateTintMode="multiply"
-            android:layout_marginBottom="2dp"
-            />
-
+        android:background="@color/lightgray"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
         <HorizontalScrollView
             android:id="@+id/horizontalScroll"
             android:layout_width="match_parent"
@@ -32,9 +22,7 @@
             android:paddingBottom= "25dp"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
-            android:background="@color/test_blue"
             android:scrollbars="none"
-            android:layout_below="@+id/progress_circular"
             >
 
             <LinearLayout
@@ -140,6 +128,18 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/horizontalScroll"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTintMode="multiply"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
+            />
 
     </RelativeLayout>
 

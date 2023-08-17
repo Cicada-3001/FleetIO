@@ -67,7 +67,7 @@ class RoutesRecyclerAdapter(private var routesList: ArrayList<Route>, var contex
                     intent.putExtra("startPoint", routesList.get(position).startPoint)
                     intent.putExtra("endPoint", routesList.get(position).endPoint)
                     intent.putExtra("estimateFare", routesList.get(position).estimateFareAmt)
-                    intent.putExtra("estimateDistance", routesList.get(position).estimateDistance)
+                    intent.putExtra("estimateDistance", routesList.get(position).estimateDistance.toString())
                     intent.putExtra("estimateTime", routesList.get(position).estimateTime)
                     context.startActivity(intent)
                 })

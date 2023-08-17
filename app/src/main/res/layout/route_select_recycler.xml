@@ -22,6 +22,7 @@
         android:text="Start Point"
         android:layout_marginStart="10dp"
         android:textSize="13sp"
+        android:textColor="@color/quill_blue"
         android:textAlignment="textStart"
         android:layout_toRightOf="@+id/firstIconIv"
         />
@@ -57,6 +58,7 @@
         android:layout_marginStart="10dp"
         android:textAlignment="textStart"
         android:textSize="11sp"
+        android:textColor="@color/quill_blue"
         android:layout_toRightOf="@+id/secondIconIv"
         android:layout_below="@+id/firstIconIv"
         android:layout_marginTop="16dp"

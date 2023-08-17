@@ -28,7 +28,9 @@ class MainViewModel(private val repository: Repository): ViewModel() {
         val tripResponse:  MutableLiveData<Response<List<TripAdd>>> = MutableLiveData()
         val userResponse: MutableLiveData<Response<User>> = MutableLiveData()
         val routeResponse: MutableLiveData<Response<Route>> = MutableLiveData()
-        val countsResponse: MutableLiveData<Response<Counts>> = MutableLiveData()
+        val tiripResponse: MutableLiveData<Response<TripAdd>> = MutableLiveData()
+
+    val countsResponse: MutableLiveData<Response<Counts>> = MutableLiveData()
         val expensesResponse: MutableLiveData<Response<List<OtherExpense>>> = MutableLiveData()
         val revenueResponse: MutableLiveData<Response<List<OtherRevenue>>> = MutableLiveData()
         val routeStatsResponse:  MutableLiveData <Response<List<RouteStat>>> = MutableLiveData()
@@ -39,6 +41,14 @@ class MainViewModel(private val repository: Repository): ViewModel() {
         fun getVehicles() {
             viewModelScope.launch {
                 val response: Response<List<Vehicle>> = repository.getVehicles()
+                vehiclesResponse.value= response
+            }
+        }
+
+
+        fun getVehiclesByRoute(route: String) {
+            viewModelScope.launch {
+                val response: Response<List<Vehicle>> = repository.getVehiclesByRoute(route)
                 vehiclesResponse.value= response
             }
         }
@@ -336,10 +346,10 @@ class MainViewModel(private val repository: Repository): ViewModel() {
             }
         }
 
-        fun deleteTrip(routeId: String){
+        fun deleteTrip(tripId: String){
             viewModelScope.launch {
-                val response: Response<Route> = repository.deleteRoute(routeId)
-                routeResponse.value = response
+                val response: Response<TripAdd> = repository.deleteTrip(tripId)
+                tiripResponse.value = response
             }
         }
 }

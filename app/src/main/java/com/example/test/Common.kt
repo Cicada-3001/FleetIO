@@ -31,6 +31,7 @@ object Common {
     const val USER_INFO_REFERENCE: String= "UserInfo"
     val NOTI_TITLE: String ="title"
     val NOTI_BODY: String ="body"
+    var hideNotification:Boolean= false;
 
     val geofenceVehicle: Vehicle? = null
 

@@ -1,5 +1,6 @@
 package com.example.test
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context.ALARM_SERVICE
@@ -41,8 +42,9 @@ class MaintenanceTimerFragment : Fragment(), View.OnClickListener {
         return view;
     }
 
-
+/*
     // OnToggleClicked() method is implemented the time functionality
+    @SuppressLint("ShortAlarm")
     fun onToggleClicked(view:View) {
         Toast.makeText(activity, "I have been clicked", Toast.LENGTH_SHORT).show()
         var time: Long
@@ -67,18 +69,18 @@ class MaintenanceTimerFragment : Fragment(), View.OnClickListener {
                     if (Calendar.AM_PM === 0) time + 1000 * 60 * 60 * 12 else time + 1000 * 60 * 60 * 24
             }
             // Alarm rings continuously until toggle button is turned off
-            alarmManager!!.setRepeating(AlarmManager.RTC_WAKEUP, time, 10000, pendingIntent)
+            alarmManager!!.setRepeating(AlarmManager.RTC_WAKEUP, time, 10000)
             alarmManager!!.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (time * 1000), pendingIntent);
         } else {
-            alarmManager!!.cancel(pendingIntent)
+            pendingIntent?.let { alarmManager!!.cancel(it) }
             Toast.makeText(activity, "ALARM OFF", Toast.LENGTH_SHORT).show()
         }
     }
-
+*/
     override fun onClick(view: View?) {
         when(view?.id){
             R.id.toggleButton ->{
-                onToggleClicked(view)
+                //onToggleClicked(view)
             }
         }
 
@@ -86,6 +88,8 @@ class MaintenanceTimerFragment : Fragment(), View.OnClickListener {
 
 
     }
+
+
 
 
 }

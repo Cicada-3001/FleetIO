@@ -11,9 +11,123 @@
     android:id="@+id/ll">
 
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        >
+
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:isScrollContainer="true"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/alertCard"
+                android:layout_width="match_parent"
+                android:layout_height="790dp"
+                app:cardBackgroundColor="@color/lightgray"
+                android:visibility="gone"
+                app:cardElevation="5dp"
+                android:elevation="5dp"
+                >
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <ImageView
+                        android:id="@+id/cancelImg"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/cancel"
+                        />
+
+                    <TextView
+                        android:id="@+id/titleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending Maintenance"
+                        android:textStyle="bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="50dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/quill_red"
+                        />
+
+                    <TextView
+                        android:id="@+id/subTitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vehicles Scheduled for Service but Not Yet Attended"
+                        android:textSize="13sp"
+                        android:layout_marginVertical="10dp"
+                        android:layout_below="@+id/titleTv"
+                        android:layout_centerHorizontal="true"
+                        />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_below="@+id/subTitleTv"
+                        android:id="@+id/maintenanceRv"
+                        android:scrollbars="none"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/secondTitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/maintenanceRv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:text="Operating Risk Alert"
+                        android:textColor="@color/quill_red"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+
+
+                    <TextView
+                        android:id="@+id/secondSubTitleTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Driver's Identified With Expired Drivers License"
+                        android:textSize="13sp"
+                        android:layout_marginVertical="10dp"
+                        android:layout_below="@+id/secondTitleTv"
+                        android:layout_centerHorizontal="true"
+                        />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_below="@+id/secondSubTitleTv"
+                        android:id="@+id/licenseRv"
+                        android:scrollbars="none"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+
         >
         <LinearLayout
             android:layout_width="160dp"
@@ -26,7 +140,7 @@
             android:paddingStart="5dp"
             android:layout_marginTop="35dp"
             android:layout_marginStart="10dp"
-            android:background="@drawable/rounded_yellow"
+            android:background="@drawable/rounded_red"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints">
@@ -35,7 +149,7 @@
                 android:id="@+id/maintenanceTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Not Maintained"
+                android:text="NOT MAINTAINED 0"
                 android:textColor="@color/white"
                 />
         </LinearLayout>
@@ -60,12 +174,10 @@
                 android:id="@+id/expiredTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Expired License"
+                android:text="EXPIRED LICENSE   0"
                 android:textColor="@color/white"
                 />
         </LinearLayout>
-
-
 
 
         <LinearLayout
@@ -79,7 +191,7 @@
             android:layout_marginStart="10dp"
             android:paddingEnd="5dp"
             android:paddingStart="5dp"
-            android:background="@drawable/rounded_green"
+            android:background="@drawable/rounded_red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints">
@@ -88,7 +200,7 @@
                 android:id="@+id/onRouteTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Available Vehicles"
+                android:text="ON ROUTE 0"
                 android:textColor="@color/white"
                 />
         </LinearLayout>
@@ -113,7 +225,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="INSURANCE 20"
+                android:text="INSURANCE  "
                 android:textColor="@color/white"
                 />
         </LinearLayout>
@@ -123,27 +235,59 @@
             android:id="@+id/dashmap"
             android:name="com.example.test.MapsFragment"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout="@layout/fragment_maps" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        >
+            <ProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateTintMode="multiply"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerInParent="true"
+                android:visibility="visible"
+                />
 
-        <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/activeVehiclesRv"
+                android:scrollbars="none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_below="@+id/divide"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                >
+                <!--Ui component for our bar chart-->
+
+                <com.anychart.AnyChartView
+                    android:id="@+id/any_chart_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+            </RelativeLayout>
+
+
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:isScrollContainer="true"
             android:orientation="vertical">
             <LinearLayout
                 android:clipToPadding="false"
@@ -155,9 +299,10 @@
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
                     android:id="@+id/vehicleCard"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardBackgroundColor="@color/lightgray"
                     android:layout_width="170dp"
                     android:layout_height="190dp"
+                    app:cardElevation="0dp"
                     android:layout_marginHorizontal="10dp">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -168,9 +313,10 @@
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:background="@drawable/cerclebackgroundpurple"
-                            android:src="@drawable/ic_control_point_black_24dp"
+                            android:src="@drawable/ic_baseline_directions_car_filled_24"
                             android:padding="10dp"/>
                         <TextView
+                            android:id="@+id/vehiclesTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
@@ -196,7 +342,8 @@
                     android:clickable="true"
                     android:id="@+id/driverCard"
                     android:layout_width="170dp"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/lightgray"
                     android:layout_height="190dp"
                     android:layout_margin="10dp">
                     <LinearLayout
@@ -208,9 +355,10 @@
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:background="@drawable/cerclebackgroundpurple"
-                            android:src="@drawable/ic_control_point_black_24dp"
+                            android:src="@drawable/ic_baseline_person_24"
                             android:padding="10dp"/>
                         <TextView
+                            android:id="@+id/driversTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
@@ -243,10 +391,11 @@
                 <androidx.cardview.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
+                    app:cardElevation="0dp"
                     android:layout_width="170dp"
                     android:layout_height="190dp"
                     android:id="@+id/routeCard"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardBackgroundColor="@color/lightgray"
                     android:layout_margin="10dp">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -257,9 +406,10 @@
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:background="@drawable/cerclebackgroundpurple"
-                            android:src="@drawable/ic_control_point_black_24dp"
+                            android:src="@drawable/ic_baseline_import_export_24"
                             android:padding="10dp"/>
                         <TextView
+                            android:id="@+id/routesTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
@@ -283,8 +433,9 @@
                 <androidx.cardview.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardBackgroundColor="@color/lightgray"
                     android:layout_width="170dp"
+                    app:cardElevation="0dp"
                     android:layout_height="190dp"
                     android:id="@+id/maintenanceCard"
                     android:layout_margin="10dp">
@@ -300,9 +451,10 @@
                             android:layout_height="55dp"
                             android:background="@drawable/cerclebackgroundpurple"
                             android:padding="10dp"
-                            android:src="@drawable/ic_control_point_black_24dp" />
+                            android:src="@drawable/ic_baseline_settings_suggest_24" />
 
                         <TextView
+                            android:id="@+id/maintenancesTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -338,7 +490,8 @@
                 <androidx.cardview.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/lightgray"
                     android:layout_width="340dp"
                     android:layout_height="150dp"
                     android:id="@+id/tripsCard"
@@ -356,6 +509,7 @@
                             android:src="@drawable/ic_wifi_black_24dp"
                             android:padding="10dp"/>
                         <TextView
+                            android:id="@+id/tripsTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
@@ -388,7 +542,8 @@
                 <androidx.cardview.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/lightgray"
                     android:layout_width="340dp"
                     android:layout_height="150dp"
                     android:id="@+id/statsCard"
@@ -478,6 +633,7 @@
 
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

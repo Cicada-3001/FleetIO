@@ -12,9 +12,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
-
 
     <application
         android:allowBackup="true"
@@ -27,23 +25,27 @@
         android:theme="@style/Theme.Test"
         android:usesCleartextTraffic="true"
         tools:targetApi="33">
+        <activity
+            android:name=".AboutRouteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DriverTodayActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="Out of Geofence" />
 
-
         <activity
             android:name=".RouteDiversionActivity"
             android:exported="false"
-            android:parentActivityName=".StartActivity"/>
+            android:parentActivityName=".StartActivity" />
         <activity
             android:name=".VehicleTracking2"
             android:exported="false" />
         <activity
             android:name=".EditVehicleActivity"
             android:exported="false" />
-
         <activity
             android:name=".VehicleGeofenceActivity"
             android:exported="false" />
@@ -101,7 +103,8 @@
             android:exported="false" />
         <activity
             android:name=".StatisticsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".StartActivity" />
         <activity
             android:name=".VehicleInfoActivity"
             android:exported="false" />
@@ -122,9 +125,6 @@
             android:exported="true"
             android:label="@string/title_activity_start"
             android:theme="@style/Theme.Test.NoActionBar" />
-
-
-
         <activity
             android:name=".AddTripActivity"
             android:exported="false" />
@@ -212,19 +212,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
-       <!-- <service
+        <!--
+ <service
             android:name="com.example.test2.YourFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service> -->
-
+        </service>
+        -->
         <receiver android:name=".GeoFenceBroadcastReceiver" />
     </application>
-
 
 </manifest>

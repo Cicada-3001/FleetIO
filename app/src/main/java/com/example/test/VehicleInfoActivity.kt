@@ -91,12 +91,6 @@ class VehicleInfoActivity : AppCompatActivity(), View.OnClickListener {
         Log.d("Driver Lastname", driverLastName)
 
 
-        /*
-        Log.d("fuel Consumption", fuelConsumption.toString())
-        Log.d("availability", availability)
-        Log.d("current Location",currentLocation)
-        Log.d("seatCapacity", seatCapacity)
-        */
 
         editTv = findViewById(R.id.editTv)
         markGeoFenceTv = findViewById(R.id.geofenceTv)
@@ -182,7 +176,6 @@ class VehicleInfoActivity : AppCompatActivity(), View.OnClickListener {
                     startActivity(i)
                     animate2()
                 }
-
                 R.id.geofenceTv -> {
                     i = Intent(this@VehicleInfoActivity, VehicleGeofenceActivity::class.java)
                     intentPutExtra(i)

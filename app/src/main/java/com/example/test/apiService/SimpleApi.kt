@@ -10,6 +10,13 @@ interface SimpleApi {
     @GET("api/v1/vehicles")
     suspend fun getVehicles(): Response<List<Vehicle>>
 
+
+    @GET("api/v1/vehicles/byroute/{route}")
+    suspend fun getVehiclesByRoute(
+        @Path("route") vin:String
+    ): Response<List<Vehicle>>
+
+
     @GET("api/v1/drivers")
     suspend fun getDrivers(): Response<List<Driver>>
 

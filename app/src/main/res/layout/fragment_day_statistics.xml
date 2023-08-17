@@ -13,129 +13,192 @@
         android:paddingEnd="5dp"
         android:scrollbars="none"
          >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:scrollbars="none"
-            android:isScrollContainer="true"
+
+        <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:scrollbars="none"
+             android:isScrollContainer="true"
             >
 
-            <RelativeLayout
+            <ProgressBar
+                android:id="@+id/progress_circular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="20dp">
-                <TextView
-                    android:id="@+id/leaderboardTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Leaderboard"
-                    android:textColor="@color/black"
-                    android:paddingStart="5dp"
-                    />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/driversRv"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_below="@+id/leaderboardTv"/>
-            </RelativeLayout>
+                android:indeterminate="true"
+                android:indeterminateTintMode="multiply"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="400dp"
+                android:visibility="visible"
+                />
 
-            <RelativeLayout
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/white"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:scrollbars="none"
+                android:isScrollContainer="true"
                 >
-                <!--Ui component for our bar chart-->
-                <com.github.mikephil.charting.charts.BarChart
-                    android:id="@+id/idBarChart"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="20dp">
+                    <TextView
+                        android:id="@+id/leaderboardTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Leaderboard"
+                        android:textColor="@color/black"
+                        android:paddingStart="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="bold"
+                        />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/driversRv"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/leaderboardTv"/>
+                </RelativeLayout>
 
-          <RelativeLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:elevation="2dp"
-              android:background="@color/white"
-              android:paddingTop="10dp"
-              android:layout_marginTop="20dp"
-              android:id="@+id/fuelRevenueRev"
-              >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    >
+                    <!--Ui component for our bar chart-->
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/idBarChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
 
-                  <TextView
-                      android:id="@+id/idTVHead"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:gravity="center"
-                      android:padding="4dp"
-                      android:text="Revenue vs Expense"
-                      android:textAlignment="center"
-                      android:textColor="@color/quill_blue"
-                      android:textSize="16sp"
-                      android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="2dp"
+                    android:background="@color/white"
+                    android:paddingTop="10dp"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/fuelRevenueRev"
+                    >
 
-                  <!--Ui component for our pie chart-->
-                  <com.github.mikephil.charting.charts.PieChart
-                      android:id="@+id/pieChart"
-                      android:layout_width="300dp"
-                      android:layout_height="300dp"
-                      android:layout_below="@id/idTVHead"
-                      android:layout_centerHorizontal="true"
-                      android:layout_marginTop="20dp" />
+                    <TextView
+                        android:id="@+id/idTVHead"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="4dp"
+                        android:text="Revenue vs Expense"
+                        android:textAlignment="center"
+                        android:textColor="@color/quill_blue"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                  <LinearLayout
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_below="@id/pieChart"
-                      android:layout_marginTop="10dp"
-                      android:paddingBottom="10dp"
-                      android:orientation="horizontal"
-                      android:background="@color/white"
-                      android:weightSum="3">
+                    <!--Ui component for our pie chart-->
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieChart"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_below="@id/idTVHead"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp" />
 
-                      <TextView
-                          android:layout_width="0dp"
-                          android:layout_height="wrap_content"
-                          android:layout_margin="3dp"
-                          android:layout_weight="1"
-                          android:drawableLeft="@drawable/ic_circle"
-                          android:drawableTint="@color/quill_blue"
-                          android:gravity="center"
-                          android:padding="4dp"
-                          android:text="Android"
-                          android:textAlignment="center"
-                          android:textColor="@color/black" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/pieChart"
+                        android:layout_marginTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:weightSum="4">
 
-                      <TextView
-                          android:layout_width="0dp"
-                          android:layout_height="wrap_content"
-                          android:layout_margin="3dp"
-                          android:layout_weight="1"
-                          android:drawableLeft="@drawable/ic_circle"
-                          android:drawableTint="@color/yellow"
-                          android:gravity="center"
-                          android:padding="4dp"
-                          android:text="Apple"
-                          android:textAlignment="center"
-                          android:textColor="@color/black" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            />
 
-                      <TextView
-                          android:layout_width="0dp"
-                          android:layout_height="wrap_content"
-                          android:layout_margin="3dp"
-                          android:layout_weight="1"
-                          android:drawableLeft="@drawable/ic_circle"
-                          android:drawableTint="@color/quill_red"
-                          android:gravity="center"
-                          android:padding="4dp"
-                          android:text="Microsoft"
-                          android:textAlignment="center"
-                          android:textColor="@color/black" />
-                  </LinearLayout>
-          </RelativeLayout>
-        </LinearLayout>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_circle"
+                            android:drawableTint="@color/quill_blue"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="Revenue"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/ic_circle"
+                            android:drawableTint="@color/quill_red"
+                            android:gravity="center"
+                            android:padding="4dp"
+                            android:text="Expense"
+                            android:textAlignment="center"
+                            android:textColor="@color/black" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    >
+                    <!--Ui component for our bar chart-->
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chartOne"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    >
+                    <!--Ui component for our bar chart-->
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/anotherChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    >
+                    <!--Ui component for our bar chart-->
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chartTwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 
 </FrameLayout>

@@ -5,11 +5,13 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -34,13 +36,16 @@ class VehiclesActivity : AppCompatActivity() {
     private lateinit var vehicleRV: RecyclerView
     var vehiclesList: ArrayList<Vehicle> = ArrayList<Vehicle>()
     var  vehicleRecyclerAdapter: VehicleRecyclerAdapter = VehicleRecyclerAdapter(vehiclesList,this,0, null)
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val actionBar: ActionBar?
         actionBar = supportActionBar
+
         // with colo hash code as its parameter
         val colorDrawable = ColorDrawable(Color.parseColor("#FFFFFF"))
+
         // Set BackgroundDrawable
        // actionBar?.setElevation(0F);
         actionBar?.setBackgroundDrawable(colorDrawable)
@@ -48,32 +53,11 @@ class VehiclesActivity : AppCompatActivity() {
         // on below line we are initializing our views with their ids.
         vehicleRV= findViewById(R.id.vehiclesRV)
         val repository = Repository()
+        progressBar = findViewById(R.id.progress_circular)
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel= ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
 
-        // on below line we are initializing our list
-        vehiclesList = ArrayList()
-        viewModel.getVehicles()
-
-        try{
-            viewModel.vehiclesResponse.observe(this, Observer{
-                if(it.isSuccessful){
-                    vehiclesList= it.body() as ArrayList<Vehicle>
-                    vehicleRecyclerAdapter = VehicleRecyclerAdapter(vehiclesList,this,0,null)
-                    vehicleRV.adapter = vehicleRecyclerAdapter
-                    Log.d("LIST",vehiclesList.size.toString())
-                }else{
-                    Toast.makeText(this,it.errorBody().toString(),Toast.LENGTH_SHORT).show()
-                }
-
-            })
-        }catch (e:Exception){
-            Log.d("Exception",vehiclesList.size.toString())
-        }
-
-        Log.d("LIST",vehiclesList.size.toString())
-        // on below line we are setting adapter to our recycler view.
-        vehicleRecyclerAdapter.notifyDataSetChanged()
+        getVehicles()
 
         // in this we are specifying drag direction and position to right
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -99,6 +83,36 @@ class VehiclesActivity : AppCompatActivity() {
         }).attachToRecyclerView(vehicleRV)
     }
 
+    fun getVehicles(){
+        progressBar.visibility = View.VISIBLE
+        Handler().postDelayed({
+
+            // on below line we are initializing our list
+            vehiclesList = ArrayList()
+            viewModel.getVehicles()
+
+            try {
+                viewModel.vehiclesResponse.observe(this, Observer {
+                    if (it.isSuccessful) {
+                        vehiclesList = it.body() as ArrayList<Vehicle>
+                        vehicleRecyclerAdapter = VehicleRecyclerAdapter(vehiclesList, this, 0, null)
+                        vehicleRV.adapter = vehicleRecyclerAdapter
+                        Log.d("LIST", vehiclesList.size.toString())
+                    } else {
+                        Toast.makeText(this, it.errorBody().toString(), Toast.LENGTH_SHORT).show()
+                    }
+
+                })
+            } catch (e: Exception) {
+                Log.d("Exception", vehiclesList.size.toString())
+            }
+
+            Log.d("LIST", vehiclesList.size.toString())
+            // on below line we are setting adapter to our recycler view.
+             progressBar.visibility = View.GONE
+            vehicleRecyclerAdapter.notifyDataSetChanged()
+        }, 3000)
+    }
 
 
     private fun   showAlertDialog(vehicle: Vehicle){
@@ -187,7 +201,11 @@ class VehiclesActivity : AppCompatActivity() {
         // running a for loop to compare elements.
         for (item in vehiclesList) {
             // checking if the entered string matched with any item of our recycler view.
-            if (item.vehicleType!!.toLowerCase().contains(text.toLowerCase())) {
+            if (item.vehicleType!!.toLowerCase().contains(text.toLowerCase())
+                || item.make!!.toLowerCase().contains(text.toLowerCase())
+                || item.model!!.toLowerCase().contains(text.toLowerCase())
+                || item.year!!.toLowerCase().contains(text.toLowerCase())
+            ) {
                 // if the item is matched we are
                 // adding it to our filtered list.
                 filteredlist.add(item)

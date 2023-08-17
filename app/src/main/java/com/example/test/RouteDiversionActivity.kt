@@ -71,7 +71,6 @@ class RouteDiversionActivity : AppCompatActivity(), View.OnClickListener {
         actionBar?.setBackgroundDrawable(colorDrawable)
         setContentView(R.layout.activity_route_diversion)
         init()
-
     }
 
 

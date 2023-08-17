@@ -55,7 +55,7 @@ class DriverRankRecyclerAdapter (private var driversList: ArrayList<DriverStat>,
         }
         // on below line we are setting data to our text view and our image view.
         holder.driverNameTv.text = driversList.get(position).driver.firstName+" "+driversList.get(position).driver.lastName
-        holder.driverVehTv.text = driversList.get(position).driver.vehicle?.vehicleType
+        holder.driverVehTv.text = driversList.get(position).driver.vehicle
 
         holder.itemView.setOnClickListener(View.OnClickListener{
             var intent = Intent(context,DriverInfoActivity::class.java)

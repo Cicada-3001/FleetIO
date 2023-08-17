@@ -1,6 +1,7 @@
 package com.example.test.repository
 
 
+import androidx.lifecycle.MutableLiveData
 import com.example.retrofittutorial.api.RetrofitInstance
 import com.example.test.models.*
 import retrofit2.Response
@@ -36,6 +37,11 @@ class Repository {
      suspend fun getRoutes(): Response<List<Route>>{
          return RetrofitInstance.api.getRoutes()
      }
+
+
+    suspend fun getVehiclesByRoute(route:String): Response<List<Vehicle>> {
+        return RetrofitInstance.api.getVehiclesByRoute(route)
+    }
 
    /* suspend fun getVehicleRanks(): Response<List<VehicleStat>> {
         return RetrofitInstance.api.getVehicleRanks()

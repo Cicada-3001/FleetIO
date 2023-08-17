@@ -3,88 +3,81 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:cardElevation="2dp"
+    android:layout_marginEnd="3dp"
+    app:cardBackgroundColor="@color/lightgray"
     android:layout_marginBottom="2dp">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/lightgray"
         >
-        <!--on below line we are creating
-            a linear layout for grid view item-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/white">
+            android:gravity="center"
+            android:layout_marginHorizontal="5dp"
+            >
 
             <!--on below line we are creating
                 a simple image view-->
-            <ImageView
-                android:id="@+id/vehImg"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/driverImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_margin="8dp"
                 android:padding="5dp"
-                />
-
+                android:src="@drawable/profile" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="55dp"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_gravity="center"
-                android:background="@color/white"
                 >
 
-
+                <!--on below line we are creating
+                    a simple text view-->
                 <TextView
-                    android:id="@+id/vehTypeTv"
+                    android:id="@+id/driverNameTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Sedan"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:textAlignment="textStart"
                     android:textColor="@color/black"
                     tools:ignore="RtlCompat" />
 
-
                 <TextView
-                    android:id="@+id/vehMakeModelTv"
+                    android:id="@+id/driverVehTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Toyota Camry"
-                    android:textSize="13sp"
+                    android:textSize="11sp"
+                    android:text="No vehicle assigned"
                     android:textAlignment="textStart"
                     tools:ignore="RtlCompat" />
 
+
                 <TextView
-                    android:id="@+id/vehPlateNumberTv"
+                    android:id="@+id/expiredTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="10sp"
-                    android:text="ABC 123"
-                    android:textAllCaps="true"
+                    android:textSize="11sp"
+                    android:text=""
+                    android:textColor="@color/quill_red"
                     android:textAlignment="textStart"
                     tools:ignore="RtlCompat" />
-
 
             </LinearLayout>
         </LinearLayout>
 
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
-
-
-
-
 
 

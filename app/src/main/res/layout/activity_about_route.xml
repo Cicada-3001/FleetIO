@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VehicleInfoActivity"
+    android:background="@color/lightgray"
+    >
+
+    <ImageView
+        android:id="@+id/back_button_img"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/back_button_img"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/routeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
+            android:text="Route"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/startPointImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/routeTv"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_location_on_24" />
+
+        <TextView
+            android:id="@+id/startPointTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/routeTv"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/startPointImg"
+            android:src="@drawable/ic_baseline_location_on_24"
+            android:text="Nairobi"
+            android:textColor="@color/quill_red"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="35dp"
+            android:layout_below="@+id/routeTv"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/black" />
+
+        <ImageView
+            android:id="@+id/endPointImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/startPointImg"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/ic_baseline_location_on_24" />
+
+        <TextView
+            android:id="@+id/endPointTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/startPointImg"
+            android:layout_marginTop="28dp"
+            android:layout_toRightOf="@+id/endPointImg"
+            android:src="@drawable/ic_baseline_location_on_24"
+            android:text="Nairobi"
+            android:textColor="@color/quill_red"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tripsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/endPointImg"
+            android:layout_marginTop="20dp"
+            android:text="Trips Completed Today"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:id="@+id/tripsValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/endPointImg"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/fuelTv"
+            android:text="0"
+            android:textColor="@color/quill_green"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/fuelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tripsTv"
+            android:layout_marginTop="30dp"
+            android:text="Estimated Distance"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:id="@+id/distanceValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tripsTv"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/fuelTv"
+            android:text=""
+            android:textColor="@color/quill_green"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/maintenanceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fuelTv"
+            android:layout_marginTop="30dp"
+            android:text="Estimate Time"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/timeValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/maintenanceTv"
+            android:layout_toRightOf="@+id/fuelTv"
+            android:text=""
+            android:textColor="@color/quill_green"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/insuranceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/maintenanceTv"
+            android:layout_marginTop="30dp"
+            android:text="Average Fare Amount"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/fareValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insuranceTv"
+            android:layout_toRightOf="@+id/fuelTv"
+            android:text=""
+            android:textColor="@color/quill_green"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/fuelCostTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insuranceTv"
+            android:layout_marginTop="30dp"
+            android:text="Vehicle Count"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:id="@+id/vehicleValueTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fuelCostTv"
+            android:layout_toRightOf="@+id/fuelTv"
+            android:text="0"
+            android:textColor="@color/quill_green"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/vehicleListTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vehicleValueTv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Vehicles on this route"
+            android:textColor="@color/quill_blue"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vehiclesRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/vehicleListTv"
+            android:layout_marginTop="20dp"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vehicleListTv"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="2dp"
+            android:indeterminate="true"
+            android:indeterminateTintMode="multiply"
+            android:visibility="visible"
+
+            />
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

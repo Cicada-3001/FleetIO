@@ -66,7 +66,7 @@ class VehicleTrackingActivity : AppCompatActivity(), View.OnClickListener, OnMap
 
     private lateinit var backButtonImg: ImageView
     var vehiclesList: ArrayList<Vehicle> = ArrayList<Vehicle>()
-    var  vehicleRecyclerAdapter: ActiveVehicleRecyclerAdapter = ActiveVehicleRecyclerAdapter(vehiclesList,this)
+    var  vehicleRecyclerAdapter: ActiveVehicleRecyclerAdapter = ActiveVehicleRecyclerAdapter(vehiclesList,0,this)
     private lateinit var mMap: GoogleMap
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -287,7 +287,7 @@ class VehicleTrackingActivity : AppCompatActivity(), View.OnClickListener, OnMap
         viewModel.vehiclesResponse.observe(this, Observer{
             if(it.isSuccessful){
                 vehiclesList= it.body() as ArrayList<Vehicle>
-                vehicleRecyclerAdapter = ActiveVehicleRecyclerAdapter(vehiclesList,this)
+                vehicleRecyclerAdapter = ActiveVehicleRecyclerAdapter(vehiclesList,0,this)
                 vehicleRV.adapter = vehicleRecyclerAdapter
                 vehicleRV.layoutManager =  LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
@@ -305,7 +305,6 @@ class VehicleTrackingActivity : AppCompatActivity(), View.OnClickListener, OnMap
         // a show method to display a dialog.
         dialog.show()
     }
-
 
     private fun showDefaultLocationOnMap(latLng: LatLng) {
         moveCamera(latLng)

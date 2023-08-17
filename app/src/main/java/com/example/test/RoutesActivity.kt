@@ -5,11 +5,13 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.SearchView
@@ -30,6 +32,7 @@ class RoutesActivity : AppCompatActivity(), OnItemClickListener {
     private lateinit var routeRV: RecyclerView
     var  routesList: ArrayList<Route> = ArrayList<Route>()
     var  routeRecyclerAdapter: RoutesRecyclerAdapter = RoutesRecyclerAdapter(routesList,this, 0, this)
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,45 +41,25 @@ class RoutesActivity : AppCompatActivity(), OnItemClickListener {
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         val actionBar: ActionBar?
         actionBar = supportActionBar
-
-
         // with color hash code as its parameter
         val colorDrawable = ColorDrawable(Color.parseColor("#FFFFFF"))
         // Set BackgroundDrawable
         // actionBar?.setElevation(0F);
         actionBar?.setBackgroundDrawable(colorDrawable)
 
-        setContentView(R.layout.activity_vehicles2)
+        setContentView(R.layout.activity_routes)
+
+        progressBar = findViewById(R.id.progress_circular)
         // on below line we are initializing our views with their ids.
         routeRV= findViewById(R.id.vehiclesRV)
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel= ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
-
-        // on below line we are initializing our list
-        routesList = ArrayList()
-        viewModel.getRoutes()
-
-        viewModel.routesResponse.observe(this, Observer{
-            if(it.isSuccessful){
-                routesList= it.body() as ArrayList<Route>
-                routeRecyclerAdapter = RoutesRecyclerAdapter(routesList,this,0, this)
-                routeRV.adapter = routeRecyclerAdapter
-                Log.d("LIST",routesList.size.toString())
-            }else{
-                Toast.makeText(this,it.errorBody().toString(), Toast.LENGTH_SHORT).show()
-            }
-
-        })
-        Log.d("LIST",routesList.size.toString())
-        // on below line we are setting adapter to our recycler view.
-        routeRecyclerAdapter.notifyDataSetChanged()
-
+        getRoutes()
         fun animate(){
             overridePendingTransition(R.anim.slide_in_right,
                 R.anim.slide_out_left);
         }
-
 
 
         // in this we are specifying drag direction and position to right
@@ -137,6 +120,40 @@ class RoutesActivity : AppCompatActivity(), OnItemClickListener {
                 val result = intent.getStringExtra("result")
             }
         }
+    }
+
+
+
+    fun getRoutes(){
+        Handler().postDelayed({
+            // on below line we are initializing our list
+            routesList = ArrayList()
+            viewModel.getRoutes()
+
+            viewModel.routesResponse.observe(this, Observer {
+                if (it.isSuccessful) {
+                    routesList = it.body() as ArrayList<Route>
+                    routeRecyclerAdapter = RoutesRecyclerAdapter(routesList, this, 0, this)
+                    routeRV.adapter = routeRecyclerAdapter
+                    Log.d("LIST", routesList.size.toString())
+                } else {
+                    Toast.makeText(this, it.errorBody().toString(), Toast.LENGTH_SHORT).show()
+                }
+
+            })
+            Log.d("LIST", routesList.size.toString())
+            progressBar.visibility = View.GONE
+            // on below line we are setting adapter to our recycler view.
+            routeRecyclerAdapter.notifyDataSetChanged()
+        },3000)
+
+
+
+
+
+
+
+
     }
 
     fun animate(){

@@ -84,7 +84,7 @@ class VehicleTracking2 : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
     private lateinit var routeRV: RecyclerView
     private lateinit var backButtonImg: ImageView
     var vehiclesList: ArrayList<Vehicle> = ArrayList<Vehicle>()
-    var  vehicleRecyclerAdapter: ActiveVehicleRecyclerAdapter = ActiveVehicleRecyclerAdapter(vehiclesList,this)
+    var  vehicleRecyclerAdapter: ActiveVehicleRecyclerAdapter = ActiveVehicleRecyclerAdapter(vehiclesList,0,this)
 
     private lateinit var id: String
     private lateinit var vehicleType: String
@@ -184,107 +184,112 @@ class VehicleTracking2 : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
         supportActionBar?.hide()
         moreTv = findViewById(R.id.moreTv)
         backButtonImg = findViewById(R.id.back_button_img)
-        id = intent.getStringExtra("vehicle_id").toString()
-        vehicleType = intent.getStringExtra("vehicleType").toString()
-        plateNumber = intent.getStringExtra("plateNumber").toString()
-        make = intent.getStringExtra("make").toString()
-        model = intent.getStringExtra("model").toString()
-        year = intent.getStringExtra("year").toString()
-        vin = intent.getStringExtra("vin").toString()
-        fuelType = intent.getStringExtra("fuelType").toString()
-        odometerReading = intent.getDoubleExtra("odometerReading", 0.0)
-        availability = intent.getStringExtra("availability").toString()
-        imageUrl = intent.getStringExtra("imageUrl").toString()
-        driverImageUrl = intent.getStringExtra("driverImageUrl").toString()
-        driverFirstName = intent.getStringExtra("driverFirstname").toString()
-        driverLastName = intent.getStringExtra("driverLastname").toString()
-        driverPhone = intent.getStringExtra("driverPhone").toString()
-        routeStartPoint = intent.getStringExtra("routeStartPoint").toString()
-        routeEndPoint = intent.getStringExtra("routeEndPoint").toString()
-        operationArea= intent.getStringExtra("operationArea").toString()
-        geofenceRadius  = intent.getDoubleExtra("geofenceRadius", 0.0)
-        fuelConsumption = intent.getDoubleExtra("fuelConsumption", 0.0)
-        seatCapacity = intent.getIntExtra("seatCapacity",0).toString()
-        vehCurrentLocation = intent.getStringExtra("currentLocation").toString()
-      //  seatCapacity = intent.getDoubleExtra("seatCapacity").toDouble()
-        val repository = Repository()
-        val viewModelFactory = MainViewModelFactory(repository)
-        viewModel= ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
-    /*
-        Log.d("fuel Consumption", fuelConsumption.toString())
-        Log.d("availability", availability)
-        Log.d("current Location", vehCurrentLocation)
-        Log.d("seatCapacity", seatCapacity) */
-
-
-
-        //  Common.geofenceVehicle= Vehicle(id,Constants.userId, vehicleType, plateNumber, make, model, year, vin, fuelType, odometerReading, currentLocation, availability, driver, route, fuelConsumption, imageUrl, seatCapacity =)
-        driverImg = findViewById(R.id.profile_image)
-        if(driverImageUrl != null){
-            Picasso.get()
-                .load(driverImageUrl)
-                .into(driverImg)
-        }else{
-            Picasso.get()
-                .load(driverImageUrl)
-                .placeholder(this.resources.getDrawable(R.drawable.default_user))//it will show placeholder image when url is not valid.
-                .networkPolicy(NetworkPolicy.OFFLINE) //for caching the image url in case phone is offline
-                .into(driverImg)
-        }
-
-        vehicleName = findViewById(R.id.vehicleNameTv)
-        vehicleImg =findViewById(R.id.vehImg)
-
-        if(imageUrl != null){
-            Picasso.get()
-                .load(imageUrl)
-                .into(vehicleImg)
-        }else{
-            Picasso.get()
-                .load(imageUrl)
-                .placeholder(this.resources.getDrawable(R.drawable.default_user))//it will show placeholder image when url is not valid.
-                .networkPolicy(NetworkPolicy.OFFLINE) //for caching the image url in case phone is offline
-                .into(vehicleImg)
-        }
-        vehicleNumber = findViewById(R.id.vehicleNoTv)
-        vehicleName.text = vehicleType+ " "+ model
-        vehicleNumber.text= plateNumber
-
-        moreTv.setOnClickListener(this)
-        backButtonImg.setOnClickListener(this)
-        vehicleImg.setOnClickListener(this)
-        // on below line we are setting adapter to our recycler view.
-        vehicleRecyclerAdapter.notifyDataSetChanged()
-
-
-
-        Log.d("StartPoint", routeStartPoint)
-        Log.d("Endpoint", routeEndPoint)
-        Log.d("Driverlast name", driverLastName)
-        val routePoints = ArrayList<String>()
-        routePoints.add(routeStartPoint)
-        routePoints.add(routeEndPoint)
-
-        // where we will store the list of all address.
-        var addressList: List<Address>? = null
-        Log.d("routePoints", routeEndPoint)
-        try{
-            for(point:String in  routePoints) {
-                // checking if the entered location is null or not.
-                if (point != null || point != "") {
-                    // on below line we are creating and initializing a geo coder.
-                    endPoints.add(geoCodeArea(point))
-                }else {
-                    Toast.makeText(this@VehicleTracking2, "No route has been assigned to the vehicle please assign the route", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }catch (e: Exception){
-            Toast.makeText(this@VehicleTracking2, e.message.toString(), Toast.LENGTH_SHORT).show()
-        }
         mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        init()
+
+        try{
+            id = intent.getStringExtra("vehicle_id").toString()
+            vehicleType = intent.getStringExtra("vehicleType").toString()
+            plateNumber = intent.getStringExtra("plateNumber").toString()
+            make = intent.getStringExtra("make").toString()
+            model = intent.getStringExtra("model").toString()
+            year = intent.getStringExtra("year").toString()
+            vin = intent.getStringExtra("vin").toString()
+            fuelType = intent.getStringExtra("fuelType").toString()
+            odometerReading = intent.getDoubleExtra("odometerReading", 0.0)
+            availability = intent.getStringExtra("availability").toString()
+            imageUrl = intent.getStringExtra("imageUrl").toString()
+            driverImageUrl = intent.getStringExtra("driverImageUrl").toString()
+            driverFirstName = intent.getStringExtra("driverFirstname").toString()
+            driverLastName = intent.getStringExtra("driverLastname").toString()
+            driverPhone = intent.getStringExtra("driverPhone").toString()
+            routeStartPoint = intent.getStringExtra("routeStartPoint").toString()
+            routeEndPoint = intent.getStringExtra("routeEndPoint").toString()
+            operationArea= intent.getStringExtra("operationArea").toString()
+            geofenceRadius  = intent.getDoubleExtra("geofenceRadius", 0.0)
+            fuelConsumption = intent.getDoubleExtra("fuelConsumption", 0.0)
+            seatCapacity = intent.getIntExtra("seatCapacity",0).toString()
+            vehCurrentLocation = intent.getStringExtra("currentLocation").toString()
+            //  seatCapacity = intent.getDoubleExtra("seatCapacity").toDouble()
+            val repository = Repository()
+            val viewModelFactory = MainViewModelFactory(repository)
+            viewModel= ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
+            /*
+                Log.d("fuel Consumption", fuelConsumption.toString())
+                Log.d("availability", availability)
+                Log.d("current Location", vehCurrentLocation)
+                Log.d("seatCapacity", seatCapacity) */
+
+
+
+            //  Common.geofenceVehicle= Vehicle(id,Constants.userId, vehicleType, plateNumber, make, model, year, vin, fuelType, odometerReading, currentLocation, availability, driver, route, fuelConsumption, imageUrl, seatCapacity =)
+            driverImg = findViewById(R.id.profile_image)
+            if(driverImageUrl != null){
+                Picasso.get()
+                    .load(driverImageUrl)
+                    .into(driverImg)
+            }else{
+                Picasso.get()
+                    .load(driverImageUrl)
+                    .placeholder(this.resources.getDrawable(R.drawable.default_user))//it will show placeholder image when url is not valid.
+                    .networkPolicy(NetworkPolicy.OFFLINE) //for caching the image url in case phone is offline
+                    .into(driverImg)
+            }
+
+            vehicleName = findViewById(R.id.vehicleNameTv)
+            vehicleImg =findViewById(R.id.vehImg)
+
+            if(imageUrl != null){
+                Picasso.get()
+                    .load(imageUrl)
+                    .into(vehicleImg)
+            }else{
+                Picasso.get()
+                    .load(imageUrl)
+                    .placeholder(this.resources.getDrawable(R.drawable.default_van))//it will show placeholder image when url is not valid.
+                    .networkPolicy(NetworkPolicy.OFFLINE) //for caching the image url in case phone is offline
+                    .into(vehicleImg)
+            }
+            vehicleNumber = findViewById(R.id.vehicleNoTv)
+            vehicleName.text = vehicleType+ " "+ model
+            vehicleNumber.text= plateNumber
+
+            moreTv.setOnClickListener(this)
+            backButtonImg.setOnClickListener(this)
+            vehicleImg.setOnClickListener(this)
+            // on below line we are setting adapter to our recycler view.
+            vehicleRecyclerAdapter.notifyDataSetChanged()
+
+
+
+            Log.d("StartPoint", routeStartPoint)
+            Log.d("Endpoint", routeEndPoint)
+            Log.d("Driverlast name", driverLastName)
+            val routePoints = ArrayList<String>()
+            routePoints.add(routeStartPoint)
+            routePoints.add(routeEndPoint)
+
+            // where we will store the list of all address.
+            var addressList: List<Address>? = null
+            Log.d("routePoints", routeEndPoint)
+            try{
+                for(point:String in  routePoints) {
+                    // checking if the entered location is null or not.
+                    if (point != null || point != "") {
+                        // on below line we are creating and initializing a geo coder.
+                        endPoints.add(geoCodeArea(point))
+                    }else {
+                        Toast.makeText(this@VehicleTracking2, "No route has been assigned to the vehicle please assign the route", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }catch (e: Exception){
+                Toast.makeText(this@VehicleTracking2, e.message.toString(), Toast.LENGTH_SHORT).show()
+            }
+            init()
+        }catch (e:Exception){
+            Log.d("Exception", e.message.toString())
+        }
 
     }
 
@@ -362,6 +367,11 @@ class VehicleTracking2 : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
         fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallback, Looper.myLooper())
         loadAvailableDrivers()
     }
+
+
+
+
+
 
 
     private fun loadAvailableDrivers(){
@@ -545,22 +555,28 @@ class VehicleTracking2 : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
             .withListener(object: PermissionListener {
                 @SuppressLint("MissingPermission")
                 override fun onPermissionGranted(p0: PermissionGrantedResponse?) {
-                    driverLocationReference = FirebaseDatabase.getInstance()
-                        .getReference(Common.VEHICLE_LOCATION_REFERENCE)
-                        .child(id)
+                    try {
+                        driverLocationReference = FirebaseDatabase.getInstance()
+                            .getReference(Common.VEHICLE_LOCATION_REFERENCE)
+                            .child(id)
+
+                        mMap.setOnMyLocationClickListener {
+                            fusedLocationProviderClient.lastLocation
+                                .addOnFailureListener {
+                                    if (p0 != null) {
+                                        Toast.makeText(this@VehicleTracking2,"Permission"+p0.permissionName+ "was denied", Toast.LENGTH_SHORT).show()
+                                    }
+                                }.addOnSuccessListener {
+                                    val userLatLang= LatLng(it.latitude, it.longitude)
+                                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLatLang,15.5f))
+                                }
+                        }
+                    }catch (e: Exception){
+                        Log.d("Map Exception", e.message.toString())
+                    }
+
                     mMap.isMyLocationEnabled =true
                     mMap.uiSettings.isMyLocationButtonEnabled=true
-                    mMap.setOnMyLocationClickListener {
-                    fusedLocationProviderClient.lastLocation
-                            .addOnFailureListener {
-                                if (p0 != null) {
-                                    Toast.makeText(this@VehicleTracking2,"Permission"+p0.permissionName+ "was denied", Toast.LENGTH_SHORT).show()
-                                }
-                            }.addOnSuccessListener {
-                                val userLatLang= LatLng(it.latitude, it.longitude)
-                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLatLang,15.5f))
-                            }
-                    }
                     val locationButton = (mapFragment.requireView()
                         .findViewById<View>("1".toInt())!!
                         .parent!! as View).findViewById<View>("2".toInt())
@@ -602,8 +618,6 @@ class VehicleTracking2 : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
             val geoquery = geoFire.queryAtLocation (GeoLocation (latLng.latitude, latLng.longitude),0.08 )
             geoquery.addGeoQueryEventListener(this);
         }
-
-
 
         mMap.uiSettings.isZoomControlsEnabled = true
 
@@ -783,7 +797,6 @@ class VehicleTracking2 : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
             R.anim.slide_in_right);
     }
 
-
     fun showBottomSheet(){
         // on below line we are creating a new bottom sheet dialog.
         val dialog = BottomSheetDialog(this)
@@ -799,7 +812,7 @@ class VehicleTracking2 : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
         viewModel.vehiclesResponse.observe(this, Observer{
             if(it.isSuccessful){
                 vehiclesList= it.body() as ArrayList<Vehicle>
-                vehicleRecyclerAdapter = ActiveVehicleRecyclerAdapter(vehiclesList,this)
+                vehicleRecyclerAdapter = ActiveVehicleRecyclerAdapter(vehiclesList,0,this)
                 vehicleRV.adapter = vehicleRecyclerAdapter
                 vehicleRV.layoutManager =  LinearLayoutManager(this,
                     LinearLayoutManager.HORIZONTAL,false)
@@ -878,7 +891,6 @@ class VehicleTracking2 : AppCompatActivity(), View.OnClickListener, OnMapReadyCa
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onKeyExited(key: String?) {
        startTime = LocalDateTime.now().toString()
-        sendNotification("Trip Started", "Trip Started");
         tripStarted= true
     }
 

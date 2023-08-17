@@ -11,6 +11,9 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test.models.Driver
 import com.example.test.models.Maintenance
+import com.example.test.util.ActiveVehicleRecyclerAdapter
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
 
 class MaintenanceRecyclerAdapter (private var maintenancesList: ArrayList<Maintenance>, var context:Context, var viewType:Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -34,6 +37,15 @@ class MaintenanceRecyclerAdapter (private var maintenancesList: ArrayList<Mainte
                 )
                 // at last we are returning our view holder
                 return MaintenanceCardHolder(itemView)
+            }
+            2 -> {
+                // below line we are inflating user message layout.
+                itemView = LayoutInflater.from(parent.context).inflate(
+                    R.layout.preview_vehicle_recycler,
+                    parent, false
+                )
+                // at last we are returning our view holder
+                return MaintenanceCarHolder(itemView)
             }
         }
         return MaintenanceViewHolder(itemView!!)
@@ -94,6 +106,45 @@ class MaintenanceRecyclerAdapter (private var maintenancesList: ArrayList<Mainte
                     holder.maintenanceAmt.text = maintenancesList.get(position).cost.toString()
                 }
             }
+
+            2 -> {
+                holder as MaintenanceCarHolder
+                if (maintenancesList.get(position).vehicle.imageUrl != null) {
+                    Picasso.get()
+                        .load(maintenancesList.get(position).vehicle.imageUrl)
+                        .into((holder as MaintenanceCarHolder).vehImage)
+                } else {
+                    Picasso.get()
+                        .load(maintenancesList.get(position).vehicle.imageUrl)
+                        .placeholder(context.resources.getDrawable(R.drawable.default_van))//it will show placeholder image when url is not valid.
+                        .networkPolicy(NetworkPolicy.OFFLINE) //for caching the image url in case phone is offline
+                        .into((holder as MaintenanceCarHolder).vehImage)
+                }
+                holder.vehicleTypeTV.text = maintenancesList.get(position).vehicle.vehicleType
+                holder.vehPlateNumberTv.text ="Number Plate : "+maintenancesList.get(position).vehicle.plateNumber
+                holder.vehMakeTv.text = "Make : "+maintenancesList.get(position).vehicle.make
+                holder.itemView.setOnClickListener(View.OnClickListener {
+                    var intent = Intent(context, MaintenanceInfoActivity::class.java)
+                    intent.putExtra("maintenanceId", maintenancesList.get(position)._id)
+                    intent.putExtra(
+                        "vehicleType",
+                        maintenancesList.get(position).vehicle.vehicleType
+                    )
+                    intent.putExtra("vehicleMake", maintenancesList.get(position).vehicle.make)
+                    intent.putExtra("vehicleModel", maintenancesList.get(position).vehicle.model)
+                    intent.putExtra(
+                        "maintenanceType",
+                        maintenancesList.get(position).maintenanceType
+                    )
+                    intent.putExtra("date", maintenancesList.get(position).date)
+                    intent.putExtra("cost", maintenancesList.get(position).cost)
+                    intent.putExtra("description", maintenancesList.get(position).description)
+                    context.startActivity(intent)
+                })
+
+
+
+            }
         }
     }
 
@@ -102,6 +153,7 @@ class MaintenanceRecyclerAdapter (private var maintenancesList: ArrayList<Mainte
         return when (viewType) {
             0 -> 0
             1 -> 1
+            2 -> 2
             else -> 0
         }
     }
@@ -130,4 +182,21 @@ class MaintenanceRecyclerAdapter (private var maintenancesList: ArrayList<Mainte
             val maintenanceDate: TextView = itemView.findViewById(R.id.maintenanceDateTv)
             val maintenanceAmt: TextView = itemView.findViewById(R.id.maintenanceAmtTv)
     }
+
+
+    class MaintenanceCarHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        // on below line we are initializing our course name text view and our image view.
+        val vehicleTypeTV: TextView = itemView.findViewById(R.id.vehicleTypeTv)
+        val vehPlateNumberTv: TextView = itemView.findViewById(R.id.vehiclePlateTv)
+        val vehMakeTv: TextView = itemView.findViewById(R.id.vehicleMakeTv)
+        val vehImage: ImageView = itemView.findViewById(R.id.vehicleIV)
+    }
+
+
+
+
+
+
+
+
 }

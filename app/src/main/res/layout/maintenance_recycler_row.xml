@@ -1,132 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    >
-    <!--on below line we are creating
-        a linear layout for grid view item-->
-    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="2dp"
+    android:layout_marginBottom="2dp">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
-
+        android:orientation="vertical"
+        >
         <!--on below line we are creating
-            a simple image view-->
-        <ImageView
-            android:id="@+id/maintenanceIv"
-            android:layout_width="90dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:padding="5dp"
-            android:src="@drawable/repair" />
-
-        <!--on below line we are creating
-            a simple text view-->
-        <TextView
-            android:id="@+id/maintenanceTypeTv"
-            android:layout_width="wrap_content"
+            a linear layout for grid view item-->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Maintenance 1"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@+id/maintenanceIv"
-            android:layout_marginTop="20dp"
-            />
+            android:background="@color/white">
 
-        <TextView
-            android:id="@+id/mainVehType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Van"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@+id/maintenanceIv"
-            android:layout_below="@+id/maintenanceTypeTv"
-            />
+            <!--on below line we are creating
+                a simple image view-->
+            <ImageView
+                android:id="@+id/maintenanceIv"
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:src="@drawable/repair" />
 
+            <!--on below line we are creating
+                a simple text view-->
+            <TextView
+                android:id="@+id/maintenanceTypeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maintenance 1"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@+id/maintenanceIv"
+                android:layout_marginTop="20dp"
+                />
 
-        <TextView
-            android:id="@+id/mainVehModelTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nisssan Quest"
-            android:textAlignment="textStart"
-            android:layout_toRightOf="@+id/maintenanceIv"
-            android:layout_below="@+id/maintenanceTypeTv"
-            android:layout_marginTop="20dp"
-            />
-
-        <TextView
-            android:id="@+id/mainVehNumberTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="KDB 124C"
-            android:textSize="11sp"
-            android:textAlignment="textStart"
-            android:layout_below="@+id/mainVehModelTv"
-            android:layout_toRightOf="@+id/maintenanceIv"
-            />
-
-        <TextView
-            android:id="@+id/mainDealerTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Spare Automotives"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:layout_below="@+id/mainVehNumberTv"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            />
-
-        <TextView
-            android:id="@+id/mainCostTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10,000 ksh"
-            android:textSize="11sp"
-            android:textAlignment="textStart"
-            android:textColor="@color/quill_red"
-            android:layout_below="@+id/mainDealerTv"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            />
-
-        <TextView
-            android:id="@+id/mainDateTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Oct 8, 2020"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:layout_below="@+id/mainCostTv"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            />
+            <TextView
+                android:id="@+id/mainVehType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Van"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@+id/maintenanceIv"
+                android:layout_below="@+id/maintenanceTypeTv"
+                />
 
 
+            <TextView
+                android:id="@+id/mainVehModelTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nisssan Quest"
+                android:textAlignment="textStart"
+                android:layout_toRightOf="@+id/maintenanceIv"
+                android:layout_below="@+id/maintenanceTypeTv"
+                android:layout_marginTop="20dp"
+                />
 
+            <TextView
+                android:id="@+id/mainVehNumberTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KDB 124C"
+                android:textSize="11sp"
+                android:textAlignment="textStart"
+                android:layout_below="@+id/mainVehModelTv"
+                android:layout_toRightOf="@+id/maintenanceIv"
+                />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/mainDealerTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spare Automotives"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:layout_below="@+id/mainVehNumberTv"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                />
 
+            <TextView
+                android:id="@+id/mainCostTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10,000 ksh"
+                android:textSize="11sp"
+                android:textAlignment="textStart"
+                android:textColor="@color/quill_red"
+                android:layout_below="@+id/mainDealerTv"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                />
 
-
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/lightgray"
-        android:layout_margin="2dp"/>
-
-</LinearLayout>
-
+            <TextView
+                android:id="@+id/mainDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oct 8, 2020"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:layout_below="@+id/mainCostTv"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
 
 
 

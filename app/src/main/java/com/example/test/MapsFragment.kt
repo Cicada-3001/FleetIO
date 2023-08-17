@@ -245,7 +245,7 @@ class MapsFragment : Fragment(),  OnMapReadyCallback  {
 
     //animate the zooming
     private fun animateCamera(latLng: LatLng) {
-        val cameraPosition = CameraPosition.Builder().target(latLng).zoom(15.5f).build()
+        val cameraPosition = CameraPosition.Builder().target(latLng).zoom(10f).build()
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
     }
 

@@ -5,12 +5,14 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.SearchView
@@ -31,16 +33,16 @@ class MaintenancesActivity : AppCompatActivity(), View.OnClickListener, OnItemCl
 
     // on below line we are creating variables forN
     // our swipe to refresh layout, recycler view,
-
+    private lateinit var progressBar: ProgressBar
     private lateinit var maintenanceRv: RecyclerView
     private lateinit var dateFilter:ImageView
     private lateinit var vehicleFilter:ImageView
     var vehiclesList = ArrayList<Vehicle>()
     var  vehicleRecyclerAdapter: VehicleRecyclerAdapter = VehicleRecyclerAdapter(vehiclesList,this,1,this)
-
     var maintenancesList: ArrayList<Maintenance> = ArrayList<Maintenance>()
     var maintenanceRecyclerAdapter: MaintenanceRecyclerAdapter =
         MaintenanceRecyclerAdapter(maintenancesList,this,0)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +57,7 @@ class MaintenancesActivity : AppCompatActivity(), View.OnClickListener, OnItemCl
         actionBar?.setElevation(0F)
 
         setContentView(R.layout.activity_maintenances)
+        progressBar = findViewById(R.id.progress_circular)
 
         // on below line we are initializing our views with their ids.
         maintenanceRv = findViewById(R.id.maintenanceRV)
@@ -62,23 +65,11 @@ class MaintenancesActivity : AppCompatActivity(), View.OnClickListener, OnItemCl
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
+
+        getMaintenances()
         // on below line we are initializing our list
-        maintenancesList = ArrayList()
-        viewModel.getMaintenances()
 
-        viewModel.maintenancesResponse.observe(this, Observer {
-            if (it.isSuccessful) {
-                maintenancesList = it.body() as ArrayList<Maintenance>
-                maintenanceRecyclerAdapter = MaintenanceRecyclerAdapter(maintenancesList,this,0)
-                maintenanceRv.adapter = maintenanceRecyclerAdapter
-
-            } else {
-                Toast.makeText(this, it.errorBody().toString(), Toast.LENGTH_SHORT).show()
-            }
-        })
-        // on below line we are initializing our adapter
-        // on below line we are setting adapter to our recycler view.
-        maintenanceRecyclerAdapter.notifyDataSetChanged()
+        // on below line we are initializing our adapte
         dateFilter = findViewById(R.id.periodFilter)
         vehicleFilter = findViewById(R.id.vehicleFilter)
 
@@ -86,12 +77,7 @@ class MaintenancesActivity : AppCompatActivity(), View.OnClickListener, OnItemCl
         vehicleFilter.setOnClickListener(this)
 
 
-        // on below line we are creating a method to create item touch helper
-        // method for adding swipe to delete functionality.
-        // in this we are specifying drag direction and position to right
-        // on below line we are creating a method to create item touch helper
-        // method for adding swipe to delete functionality.
-        // in this we are specifying drag direction and position to right
+
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
             override  fun onMove(
                 recyclerView: RecyclerView,
@@ -154,6 +140,26 @@ class MaintenancesActivity : AppCompatActivity(), View.OnClickListener, OnItemCl
                 val result = intent.getStringExtra("result")
             }
         }
+    }
+
+
+    fun getMaintenances() {
+        progressBar.visibility = View.VISIBLE
+        Handler().postDelayed({
+            maintenancesList = ArrayList()
+            viewModel.getMaintenances()
+            viewModel.maintenancesResponse.observe(this, Observer {
+                if (it.isSuccessful) {
+                    maintenancesList = it.body() as ArrayList<Maintenance>
+                    maintenanceRecyclerAdapter = MaintenanceRecyclerAdapter(maintenancesList,this,0)
+                    maintenanceRv.adapter = maintenanceRecyclerAdapter
+                } else {
+                    Toast.makeText(this, it.errorBody().toString(), Toast.LENGTH_SHORT).show()
+                }
+        })
+            maintenanceRecyclerAdapter.notifyDataSetChanged()
+            progressBar.visibility = View.GONE
+                              },3000)
     }
 
     // calling on create option menu
@@ -289,6 +295,12 @@ class MaintenancesActivity : AppCompatActivity(), View.OnClickListener, OnItemCl
             }
         }
     }
+
+
+
+
+
+
 
     override fun onItemClick(objectRep: HashMap<String, String>) {
 

@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -55,17 +56,29 @@ class DayStatistics : Fragment() {
     lateinit var pie: Pie
     private val binding get() = _binding!!
     var vehiclesStats: ArrayList<VehicleStat> = ArrayList<VehicleStat>()
+    private lateinit var progressBar: ProgressBar
 
 
     @RequiresApi(Build.VERSION_CODES.O)
-    var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
     @RequiresApi(Build.VERSION_CODES.O)
-    val current = LocalDateTime.now().format(formatter)
+    val current = LocalDateTime.now()
+
     @RequiresApi(Build.VERSION_CODES.O)
-    var startDate:String= current
+    val sixMonthsEarlier = current.minusMonths(6)
+
     @RequiresApi(Build.VERSION_CODES.O)
-    var endDate:String= current
+    val formattedCurrent = current.format(formatter)
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    val formattedSixMonthsEarlier = sixMonthsEarlier.format(formatter)
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    var startDate:String= formattedSixMonthsEarlier
+    @RequiresApi(Build.VERSION_CODES.O)
+    var endDate:String= formattedCurrent
 
 
     var revenueList: ArrayList<OtherRevenue> = ArrayList<OtherRevenue>()
@@ -75,11 +88,7 @@ class DayStatistics : Fragment() {
     var grossRevenue:Double = 0.0
     var fuelTotal:Double = 0.0
     var revenueTotal:Double = 0.0
-
-
-
-
-
+    var maintenanceTotal:Double = 0.0
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -91,8 +100,6 @@ class DayStatistics : Fragment() {
         // on below line we are initializing our list
         driversList = ArrayList()
         viewModel.getDriverRanks()
-
-
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -113,7 +120,8 @@ class DayStatistics : Fragment() {
         driverRV= view.findViewById(R.id.driversRv)
         barChartView = view.findViewById(R.id.idBarChart)
         pieChart = view.findViewById(R.id.pieChart)
-        setPieChart()
+        progressBar = view.findViewById(R.id.progress_circular)
+
 
         var driverRankRecyclerAdapter = DriverRankRecyclerAdapter(driversList,requireActivity())
         viewModel.driverRankResponse.observe(viewLifecycleOwner, Observer{
@@ -134,9 +142,17 @@ class DayStatistics : Fragment() {
         getMaintenance()
         getOtherRevenues()
         getVehicleStats()
+        progressBar.visibility = View.VISIBLE
+
+        Handler().postDelayed({
+            setPieChart()
+            setBarData()
+            progressBar.visibility = View.GONE
+        },4000)
+
 
         driverRankRecyclerAdapter.notifyDataSetChanged()
-            // the current activity will get finished.
+
       return view
     }
 
@@ -153,8 +169,8 @@ class DayStatistics : Fragment() {
                     Log.d("LIST", vehiclesStats.size.toString())
                     Log.d("Stat response", "The response was successful")
                     for (stat in vehiclesStats) {
+                        Toast.makeText(activity, "stat "+stat.trips, Toast.LENGTH_SHORT).show()
                         barEntriesList.add(BarEntry(i.toFloat(), stat.totalFareRevenue.toFloat()))
-                        setBarData()
                         revenueTotal += stat.totalFareRevenue
                         fuelTotal += stat.totalFuelCost
                         i++
@@ -174,9 +190,8 @@ class DayStatistics : Fragment() {
 
 
     private fun setBarData(){
-        // on below line we are adding data
-        // to our bar entries list
         // on below line we are initializing our bar data set
+        Toast.makeText(activity, barEntriesList.size.toString(), Toast.LENGTH_SHORT).show()
         barDataSet = BarDataSet(barEntriesList, "Bar Chart Data")
 
         // on below line we are initializing our bar data
@@ -188,12 +203,14 @@ class DayStatistics : Fragment() {
         barChartView.axisLeft.setDrawGridLines(false);
         barChartView.axisRight.setDrawGridLines(false);
 
-        barChartView.axisRight.setDrawAxisLine(false);
-        barChartView.axisLeft.setDrawAxisLine(false);
-        barChartView.xAxis.setDrawAxisLine(false);
+        barChartView.axisRight.setDrawAxisLine(false)
+        barChartView.axisLeft.setDrawAxisLine(false)
+        barChartView.xAxis.setDrawAxisLine(false)
 
-        barChartView.description.isEnabled = false;
-        barChartView.legend.isEnabled = false;
+        barChartView.description.isEnabled = true;
+        barChartView.legend.isEnabled = true;
+
+
 
         // on below line we are setting colors for our bar chart text
         barDataSet.valueTextColor = Color.LTGRAY
@@ -212,10 +229,10 @@ class DayStatistics : Fragment() {
     fun setPieChart(){
         // on below line we are setting user percent value,
         // setting description as enabled and offset for pie chart
-        pieChart.setUsePercentValues(true)
         pieChart.getDescription().setEnabled(false)
         pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
-
+        // Set the value formatter to display percentages
+        pieChart.setUsePercentValues(true);
         // on below line we are setting drag for our pie chart
         pieChart.setDragDecelerationFrictionCoef(0.95f)
 
@@ -254,12 +271,13 @@ class DayStatistics : Fragment() {
         // on below line we are creating array list and
         // adding data to it to display in pie chart
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(70f))
-        entries.add(PieEntry(20f))
-        entries.add(PieEntry(10f))
+        Log.d("Revenue Total", revenueTotal.toString())
+        Log.d("Expense Total", expenseTotal.toString())
+        entries.add(PieEntry(revenueTotal.toFloat(), "Revenue"))
+        entries.add(PieEntry(expenseTotal.toFloat(), "Expense"))
 
         // on below line we are setting pie data set
-        val dataSet = PieDataSet(entries, "Mobile OS")
+        val dataSet = PieDataSet(entries, "Revenue/Expense")
 
         // on below line we are setting icons.
         dataSet.setDrawIcons(false)
@@ -272,7 +290,6 @@ class DayStatistics : Fragment() {
         // add a lot of colors to list
         val colors: ArrayList<Int> = ArrayList()
         colors.add(resources.getColor(R.color.quill_blue))
-        colors.add(resources.getColor(R.color.yellow))
         colors.add(resources.getColor(R.color.quill_red))
 
         // on below line we are setting colors.
@@ -308,7 +325,6 @@ class DayStatistics : Fragment() {
                 }
             } else {
                 Log.d("Error",it.message().toString())
-                Toast.makeText(requireActivity(), it.errorBody().toString(), Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -337,8 +353,11 @@ class DayStatistics : Fragment() {
         viewModel.maintenancesResponse.observe(viewLifecycleOwner, Observer {
             if (it.isSuccessful) {
                 for (maintenance in maintenancesList) {
-                    //  if(maintenance.maintained)
-                    expenseTotal += maintenance.cost
+                      if(maintenance.maintained){
+                          expenseTotal += maintenance.cost
+                          maintenanceTotal += maintenance.cost
+                      }
+
                 }
             } else {
                 Toast.makeText(requireActivity(), it.errorBody().toString(), Toast.LENGTH_SHORT).show()

@@ -3,7 +3,7 @@ package com.example.test.driverInfo
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.DialogInterface
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -14,6 +14,7 @@ import android.os.Handler
 import android.util.Log
 import android.view.*
 import android.widget.*
+import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -33,8 +34,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.internal.ContextUtils
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 
 class DriverInfoFragment : Fragment(), View.OnClickListener, OnItemClickListener {
@@ -60,7 +59,7 @@ class DriverInfoFragment : Fragment(), View.OnClickListener, OnItemClickListener
     private lateinit var licenseExpiry: String
     private lateinit var imageUrl: String
     private lateinit var updateBtn:Button
-
+    private var buttonClickListener: OnButtonClickListener? = null
     private lateinit var menuFb: FloatingActionButton
     private lateinit var vehFb: FloatingActionButton
     private lateinit var msgFb: FloatingActionButton
@@ -153,12 +152,36 @@ class DriverInfoFragment : Fragment(), View.OnClickListener, OnItemClickListener
     }
 
 
+    interface OnButtonClickListener {
+        fun onButtonClicked()
+    }
+
+    // Call this method when the button is clicked
+    private fun buttonClickHandler() {
+        if (buttonClickListener != null) {
+            buttonClickListener!!.onButtonClicked()
+        }
+    }
+
+
+    override fun onAttach(@NonNull context: Context) {
+        super.onAttach(context)
+        buttonClickListener = if (context is OnButtonClickListener) {
+            context
+        } else {
+            throw ClassCastException(
+                context.toString().toString() + " must implement OnButtonClickListener"
+            )
+        }
+    }
+
+
+
     @SuppressLint("RestrictedApi")
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onClick(v: View?) {
         if (v != null) {
             when (v.id) {
-
                 R.id.driver_options_fab -> {
                     if (vehFb.visibility == View.GONE) {
                         vehFb.visibility = View.VISIBLE
@@ -205,8 +228,8 @@ class DriverInfoFragment : Fragment(), View.OnClickListener, OnItemClickListener
                 }
                 R.id.assign_veh_fab -> {
                     showBottomSheet()
+                  //  buttonClickHandler()
                 }
-
 
                 R.id.editDOB -> {
                     showDatePicker(driverDOB)
@@ -215,14 +238,10 @@ class DriverInfoFragment : Fragment(), View.OnClickListener, OnItemClickListener
                     showDatePicker(licenseExpiryEdt)
                 }
 
-
                 R.id.assign_veh_fab -> {
                     showBottomSheet()
                 }
 
-                R.id.assign_veh_fab -> {
-                    showBottomSheet()
-                }
 
                 R.id.updateBtn -> {
                     updateDriver()
@@ -412,6 +431,15 @@ class DriverInfoFragment : Fragment(), View.OnClickListener, OnItemClickListener
         // to display our date picker dialog.
         datePickerDialog.show()
     }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -4,11 +4,13 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -35,8 +37,8 @@ class DriversActivity : AppCompatActivity() {
     private lateinit var driverRV: RecyclerView
     private lateinit var searchView:SearchView
     var driversList: ArrayList<Driver> = ArrayList<Driver>()
-    var  driverRecyclerAdapter: DriverRecyclerAdapter = DriverRecyclerAdapter(driversList,this)
-
+    var  driverRecyclerAdapter: DriverRecyclerAdapter = DriverRecyclerAdapter(driversList,this,0)
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +46,7 @@ class DriversActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_drivers)
-
+        progressBar = findViewById(R.id.progress_circular)
         val actionBar: ActionBar?
         actionBar = supportActionBar
         // with color hash code as its parameter
@@ -59,23 +61,7 @@ class DriversActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel= ViewModelProvider(this,viewModelFactory).get(MainViewModel::class.java)
-
-        // on below line we are initializing our list
-        driversList = ArrayList()
-        viewModel.getDrivers()
-
-        viewModel.driversResponse.observe(this, Observer{
-            if(it.isSuccessful){
-                driversList= it.body() as ArrayList<Driver>
-                driverRecyclerAdapter = DriverRecyclerAdapter(driversList,this)
-                driverRV.adapter = driverRecyclerAdapter
-            }else{
-                Toast.makeText(this,it.errorBody().toString(), Toast.LENGTH_SHORT).show()
-            }
-        })
-        // on below line we are initializing our adapter
-        // on below line we are setting adapter to our recycler view.
-        driverRecyclerAdapter.notifyDataSetChanged()
+        getDrivers()
 
         // in this we are specifying drag direction and position to right
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
@@ -90,19 +76,12 @@ class DriversActivity : AppCompatActivity() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-
                 // below line is to get the position
                 // of the item at that position.
                 val position = viewHolder.adapterPosition
-
                 val deletedDriver: Driver =
                     driversList.get(position)
-
-
                 showAlertDialog(deletedDriver)
-
-                // below line is to notify our item is removed from adapter.
-                driverRecyclerAdapter.notifyDataSetChanged()
             }
         }).attachToRecyclerView(driverRV)
     }
@@ -212,7 +191,11 @@ class DriversActivity : AppCompatActivity() {
         // running a for loop to compare elements.
         for (item in driversList) {
             // checking if the entered string matched with any item of our recycler view.
-            if (item.lastName?.toLowerCase()?.contains(text.toLowerCase().trim()) == true) {
+            if (item.lastName?.toLowerCase()?.contains(text.toLowerCase().trim()) == true
+                || item.firstName?.toLowerCase()?.contains(text.toLowerCase().trim()) == true
+                || item.phoneNumber?.toLowerCase()?.contains(text.toLowerCase().trim()) == true
+                || item.email?.toLowerCase()?.contains(text.toLowerCase().trim()) == true
+            ) {
                 // if the item is matched we are
                 // adding it to our filtered list.
                 Log.d("Message", "Items matched")
@@ -246,6 +229,29 @@ class DriversActivity : AppCompatActivity() {
         }
     }
 
+
+    fun getDrivers() {
+        progressBar.visibility = View.VISIBLE
+        Handler().postDelayed({
+            // on below line we are initializing our list
+            driversList = ArrayList()
+            viewModel.getDrivers()
+            viewModel.driversResponse.observe(this, Observer {
+                if (it.isSuccessful) {
+                    driversList = it.body() as ArrayList<Driver>
+                    driverRecyclerAdapter = DriverRecyclerAdapter(driversList, this,0)
+                    driverRV.adapter = driverRecyclerAdapter
+                } else {
+                    Toast.makeText(this, it.errorBody().toString(), Toast.LENGTH_SHORT).show()
+                }
+            })
+            // on below line we are initializing our adapter
+            // on below line we are setting adapter to our recycler view.
+            progressBar.visibility = View.GONE
+            driverRecyclerAdapter.notifyDataSetChanged()
+
+        },3000)
+    }
 
 
 
