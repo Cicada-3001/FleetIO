@@ -1,1 +1,36 @@
 
+Fleet Management System
+This repository contains three branches for managing a fleet system consisting of server, client, and tracker applications. The server branch holds Express-MongoDB code, the client branch contains Android code connected to Firebase, and the tracker branch features Android code also connected to Firebase.
+
+Branches:
+Server: Contains Express-MongoDB code for the backend, providing endpoints for storing and retrieving data.
+Client: Includes Android code for the client application, connected to Firebase. This application is part of the fleet management system.
+Tracker: Comprises Android code for the tracker application, also connected to Firebase. This application simulates vehicle movement services, updating the Firebase Realtime Database with real-time location data.
+
+Setup and Configuration:
+Server:
+Clone the repository and switch to the server branch.
+Navigate to the server directory.
+Install dependencies using npm install.
+Configure your MongoDB connection in server.js.
+Run the server using npm start.
+Client:
+Clone the repository and switch to the client branch.
+Open the Android project in Android Studio located in the client directory.
+Configure Firebase by adding google-services.json obtained from the Firebase console.
+Build and run the Android application on your device or emulator.
+Tracker:
+Clone the repository and switch to the tracker branch.
+Open the Android project in Android Studio located in the tracker directory.
+Configure Firebase by adding google-services.json obtained from the Firebase console.
+Build and run the Android application on your device or emulator.
+Usage:
+Server: Once the server is running, it provides endpoints for storing and retrieving data for the fleet management system.
+Client: Use the client application for managing the fleet, accessing features such as vehicle tracking, scheduling, and reporting.
+Tracker: Run the tracker application to simulate vehicle movement services, updating the Firebase Realtime Database with real-time location data.
+
+
+Additional Notes:
+Ensure proper network configuration and permissions for Firebase to function correctly.
+For detailed documentation on server endpoints and client/tracker application functionalities, refer to the respective directories within this repository.
+Feel free to reach out for any assistance or inquiries! Happy fleet managing! 
