@@ -96,7 +96,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD8xreY5umVdGtSKhBp0AJY8Ez8VZMAmlI" />
+            android:value="YOUR GOOGLE MAPS API KEY" />
 
         <activity
             android:name=".TestActivity"
